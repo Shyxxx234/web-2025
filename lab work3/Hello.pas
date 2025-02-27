@@ -2,13 +2,14 @@ PROGRAM Hello(INPUT, OUTPUT);
 USES
   DOS;
 VAR
-  Name: STRING;
+  Name, Str: STRING;
 BEGIN
   WRITELN('Content-Type: text/plain');
   WRITELN;
-  Name := GetEnv('QUERY_STRING'); 
-  DELETE(Name, 1, POS('name=', Name));
-  DELETE(Name, 1, POS('=', Name));
+  Str := GetEnv('QUERY_STRING'); 
+  DELETE(Str, 1, POS('name=', Str));
+  DELETE(Str, 1, POS('=', Str));
+  Name := Copy(Str, 1, POS(',', Str) - 1);
   IF Name = ''
   THEN
     WRITELN('Hello Anonymous!')    
