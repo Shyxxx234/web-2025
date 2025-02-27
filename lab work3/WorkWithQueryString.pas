@@ -5,10 +5,16 @@ FUNCTION GetQueryStringParameter(Key: STRING): STRING;
 VAR
   Str: STRING;
 BEGIN
-  Str := GetEnv('QUERY_STRING') + ','; 
-  DELETE(Str, 1, POS(Key, Str));
-  DELETE(Str, 1, POS('=', Str));
-  GetQueryStringParameter := Copy(Str, 1, POS(',', Str) - 1)
+  Str := GetEnv('QUERY_STRING') + '&'; 
+  IF POS(Key + '=', Str) <> 0
+  THEN
+    BEGIN
+      DELETE(Str, 1, POS(Key + '=', Str));
+      DELETE(Str, 1, POS('=', Str));
+      GetQueryStringParameter := Copy(Str, 1, POS('&', Str) - 1)
+    END
+  ELSE
+    GetQueryStringParameter := ''
 END;
 BEGIN {WorkWithQueryString}
   WRITELN('Content-Type: text/plain');
@@ -17,5 +23,3 @@ BEGIN {WorkWithQueryString}
   WRITELN('Last Name: ', GetQueryStringParameter('last_name'));
   WRITELN('Age: ', GetQueryStringParameter('age'))
 END. {WorkWithQueryString}
-
-{http://localhost/cgi-bin/workwithquerystring.cgi?first_name=Max,%20last_name=Sayfulin,%20age=18}
