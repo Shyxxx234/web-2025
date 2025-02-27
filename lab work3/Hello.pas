@@ -9,7 +9,7 @@ BEGIN
   Str := GetEnv('QUERY_STRING'); 
   DELETE(Str, 1, POS('name=', Str));
   DELETE(Str, 1, POS('=', Str));
-  FirstName := Copy(Str, 1, POS(',', Str) - 1);
+  FirstName := Copy(Str, 1, POS('&', Str) - 1);
   IF FirstName = ''
   THEN
     WRITELN('Hello Anonymous!')    
