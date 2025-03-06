@@ -7,7 +7,7 @@ BEGIN
   Name := '';
   WRITELN('Content-Type: text/plain');
   WRITELN;
-  Str := GetEnv('QUERY_STRING');
+  Str := GetEnv('QUERY_STRING') + '&';
   IF POS('name=', Str) <> 0
   THEN
     BEGIN 
