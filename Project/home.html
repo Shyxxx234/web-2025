@@ -3,34 +3,42 @@
     <head>
         <title>WebGram</title>
         <meta charset="UTF-8">
+        <link href="home.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <button type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
-            <img src="MenuItemHomeIcon.png" alt="Menu">
-        </button>
+        <div>
+            <button class="control_menu" type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
+                <img src="images/MenuItemHomeIcon.png" alt="Menu">
+            </button>
+            <p></p>
+            <button class="control_menu" type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
+                <img src="images/MenuItemProfileIcon.png" alt="Profile">
+            </button>
+            <p></p>
+            <button class="control_menu" type="button" name="Add post">
+                <img src="images/MenuItemAddNewPost.png" alt="Add post">
+            </button>
+            <p></p>
+        </div>
+        <img class="avatar" src="images/ProfileImage.png" alt="Avatar">
+        <span class="avatar_name">Ваня Денисов</span>
         <p></p>
-        <button type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
-            <img src="MenuItemProfileIcon.png" alt="Profile">
-        </button>
+        <img src="images/PostPhoto.png" alt="Photo">
         <p></p>
-        <button type="button" name="Add post">
-            <img src="MenuItemAddNewPost.png" alt="Add post">
-        </button>
+        <img src="images/like.png" alt="Reaction">
+        <span class="reaction">203</span>
+        <p class="main_text">Так красиво сегодня на улице! Настоящая зима))) Вспоминается,</p>
+        <p class="main_text">Бродский: "Поздной ночью, в уснувшей долине, на самом дне, в гор...</p>
+        <p class="more_option">ещё</p>
         <p></p>
-        <h1>Посты</h1>
-        <img src="ProfileImage.png" alt="Avatar">
-        <p>Ваня Денисов</p>
-        <img src="PostPhoto.png" alt="Photo">
+        <p class="time">2 часа назад</p>
         <p></p>
-        <img src="Reaction.png" alt="Reaction">
-        <p>Так красиво сегодня на улице! Настоящая зима))) Вспоминается,</p>
-        <p>Бродский: "Поздной ночью, в уснувшей долине, на самом дне, в гор...</p>
-        <p>ещё</p>
+        <img class="avatar" src="images/Avatar.png" alt="Avatar">
+        <span class="avatar_name">Лиза Дёмина</span>
         <p></p>
-        <p>2 часа назад</p>
-        <p></p>
-        <img src="Avatar.png" alt="Avatar">
-        <p>Лиза Дёмина</p>
-        <img src="PhotoPostLisaDemina.png" alt="Photo">
+        <img src="images/PhotoPostLisaDemina.png" alt="Photo">
     </body>
 </html>
