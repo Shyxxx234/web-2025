@@ -31,23 +31,9 @@
     width: 343px;
     height: 16px;
     font-family: "Golos Text", sans-serif;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 15px;
     line-height: 18px;
     letter-spacing: -0.15px;
     color: #222222;
-}
-.controlbutton{
-    width: 343px;
-    height: 48px;
-    border-radius: 10px;
-    padding-right: 16px;
-    padding-left: 16px;
-    color: #FFFFFF;
-    background-color: #222222;
-    font-family: "Golos Text", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
 }
