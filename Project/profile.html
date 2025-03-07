@@ -3,37 +3,48 @@
     <head>
         <title>WebGram</title>
         <meta charset="UTF-8">
+        <link href="profile.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <button type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
-            <img src="MenuItemHomeIcon.png" alt="Menu">
-        </button>
-        <p></p>
-        <button type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
-            <img src="MenuItemProfileIcon.png" alt="Profile">
-        </button>
-        <p></p>
-        <button type="button" name="Add post">
-            <img src="MenuItemAddNewPost.png" alt="Add post">
-        </button>
-        <p></p>
-        <img src="ProfileImage.png" alt="Avatar">
-        <h1>Ваня Денисов</h1>
-        <p>Привет! Я системный аналитик в ACME :) Тут моя </p>
-        <p>жизнь только для самых классных!</p>
-        <p>43</p>
-        <img src="PostsNumberImg.png" alt="Posts">
-        <p></p>
-        <img src="PhotoProfile1png.png" alt="Post photos">
-        <img src="PhotoProfile2png.png" alt="Post photos">
-        <img src="PhotoProfile3png.png" alt="Post photos">
-        <p></p>
-        <img src="PhotoProfile4png.png" alt="Post photos">
-        <img src="PhotoProfile5png.png" alt="Post photos">
-        <img src="PhotoProfile6png.png" alt="Post photos">
-        <p></p>
-        <img src="PhotoProfile7png.png" alt="Post photos">
-        <img src="PhotoProfile8png.png" alt="Post photos">
-        <img src="PhotoProfile9png.png" alt="Post photos">
+        <div>
+            <button class="control_menu" type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
+                <img src="images/MenuItemHomeIcon.png" alt="Menu">
+            </button>
+            <p></p>
+            <button class="control_menu" type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
+                <img src="images/MenuItemProfileIcon.png" alt="Profile">
+            </button>
+            <p></p>
+            <button class="control_menu" type="button" name="Add post">
+                <img src="images/MenuItemAddNewPost.png" alt="Add post">
+            </button>
+            <p></p>
+        </div>
+        <img class="profile_photo" src="images/mainprofilephoto.png" alt="Avatar">
+        <h1 class="name">Ваня Денисов</h1>
+        <p class="description">Привет! Я системный аналитик в ACME :) Тут моя </p>
+        <p class="description">жизнь только для самых классных!</p>
+        <div class="post_number_block"  >
+            <img src="images/PostsNumberImg.png" alt="Posts">
+            <span class="post_number">43 поста</span>
+        </div>
+        <div>
+            <img src="images/PhotoProfile1png.png" alt="Post photos">
+            <img src="images/PhotoProfile2png.png" alt="Post photos">
+            <img src="images/PhotoProfile3png.png" alt="Post photos">
+        </div>
+        <div>
+            <img src="images/PhotoProfile4png.png" alt="Post photos">
+            <img src="images/PhotoProfile5png.png" alt="Post photos">
+            <img src="images/PhotoProfile6png.png" alt="Post photos">
+        </div>
+        <div>
+            <img src="images/PhotoProfile7png.png" alt="Post photos">
+            <img src="images/PhotoProfile8png.png" alt="Post photos">
+            <img src="images/PhotoProfile9png.png" alt="Post photos">
+        </div>
     </body>
 </html>

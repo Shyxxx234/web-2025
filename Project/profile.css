@@ -1,0 +1,43 @@
+.control_menu{
+    border: 0;
+    background-color: #FFFFFF;
+}
+.profile_photo{
+    border-radius: 16px;
+}
+.name{
+    font-family: "Golos Text", sans-serif;
+    font-weight: 500;
+    size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    vertical-align: middle;
+    align-content: center;
+    color: #222222;
+}
+.descriprion{
+    font-family: "Golos Text", sans-serif;
+    font-weight: 400;
+    size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    align-content: center;
+    color: #222222;   
+}
+.post_number{
+    font-family: "Golos Text", sans-serif;
+    font-weight: 400;
+    size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    vertical-align: middle;
+    color: #222222;   
+}
+.post_number_block{
+    display: inline-block;
+    background-color: #F2F3F5;
+    vertical-align: middle;
+    border-radius: 6px;
+    padding: 6px 10px;
+    gap: 6px;
+}
