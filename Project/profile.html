@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title>WebGram</title>
-        <meta charset="UTF-8">
-        <link href="profile.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="images/Webgram.png">
-    </head>
-    <body>
+
+<head>
+    <title>WebGram</title>
+    <meta charset="UTF-8">
+    <link href="profile.css" rel="stylesheet">
+    <link href="fonts/font.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Webgram.png">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu_icon_wrapper">
+            <div class="menu_icon menu_icon_home">
+                <img src="images/MenuItemHomeIcon.png" alt="Menu"
+                    onclick="window.location.href = 'http://localhost/home';">
+            </div>
+        </div>
+        <div class="menu_icon_wrapper  menu_icon_wrapper_active">
+            <div class="menu_icon menu_icon_profile">
+                <img src="images/MenuItemProfileIcon.png" alt="Profile"
+                    onclick="window.location.href = 'http://localhost/profile';">
+            </div>
+        </div>
+        <div class="menu_icon_wrapper">
+            <div class="menu_icon menu_icon_add">
+                <img src="images/MenuItemAddNewPost.png" alt="Add Post">
+            </div>
+        </div>
+    </div>
+    <img class="profile_photo" src="images/mainprofilephoto.png" alt="Avatar">
+    <h1 class="name">Ваня Денисов</h1>
+    <div class="description">
+        <span class="description_information">Привет! Я системный аналитик в ACME :) Тут моя </span>
+        <span class="description_information">жизнь только для самых классных!</span>
+    </div>
+    <div class="post_number_information">
+        <img src="images/PostsNumberImg.png" alt="Posts">
+        <span class="post_number">43 поста</span>
+    </div>
+    <div>
         <div>
-            <button class="control_menu" type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
-                <img src="images/MenuItemHomeIcon.png" alt="Menu">
-            </button>
-            <p></p>
-            <button class="control_menu" type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
-                <img src="images/MenuItemProfileIcon.png" alt="Profile">
-            </button>
-            <p></p>
-            <button class="control_menu" type="button" name="Add post">
-                <img src="images/MenuItemAddNewPost.png" alt="Add post">
-            </button>
-            <p></p>
-        </div>
-        <img class="profile_photo" src="images/mainprofilephoto.png" alt="Avatar">
-        <h1 class="name">Ваня Денисов</h1>
-        <p class="description">Привет! Я системный аналитик в ACME :) Тут моя </p>
-        <p class="description">жизнь только для самых классных!</p>
-        <div class="post_number_block"  >
-            <img src="images/PostsNumberImg.png" alt="Posts">
-            <span class="post_number">43 поста</span>
+            <img class="image_post" src="images/PhotoProfile1png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile2png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile3png.png" alt="Post photos">
         </div>
         <div>
-            <img src="images/PhotoProfile1png.png" alt="Post photos">
-            <img src="images/PhotoProfile2png.png" alt="Post photos">
-            <img src="images/PhotoProfile3png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile4png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile5png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile6png.png" alt="Post photos">
         </div>
         <div>
-            <img src="images/PhotoProfile4png.png" alt="Post photos">
-            <img src="images/PhotoProfile5png.png" alt="Post photos">
-            <img src="images/PhotoProfile6png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile7png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile8png.png" alt="Post photos">
+            <img class="image_post" src="images/PhotoProfile9png.png" alt="Post photos">
         </div>
-        <div>
-            <img src="images/PhotoProfile7png.png" alt="Post photos">
-            <img src="images/PhotoProfile8png.png" alt="Post photos">
-            <img src="images/PhotoProfile9png.png" alt="Post photos">
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>

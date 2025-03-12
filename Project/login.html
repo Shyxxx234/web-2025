@@ -4,20 +4,18 @@
         <title>WebGram</title>
         <meta charset="UTF-8">
         <link href="login.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+        <link href="fonts/font.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" href="images/Webgram.png">  
     </head>
     <body>
         <h1 class="header">Войти</h1>
         <img class="main_photo" src="images/HappyManForLoginPage.png" alt="HappyMan">
-        <p class="form_text">Электропочта</p>
-        <form action="home">
-            <input class="field" type="text" name="Email" placeholder="" required>
-            <p class="hint">Введите электронную почту в формате *****@***.**</p>
-            <p class="form_text">Пароль</p>
-            <input class="field" type="password" name="password" placeholder="" required>
+        <form action="home" class="form">
+            <label class="label" for="email">Электропочта</label>
+            <input id="email" class="input input_error" type="email" name="Email" placeholder="" required>
+            <span class="hint hint_error">Введите электропочту в формате *****@***.**</span>
+            <label class="label" for="password">Пароль</label>
+            <input id="password" class="input input_error" type="password" name="password" placeholder="" required>
             <img src="images/Eye-off.png" alt="Eye-off">
             <p></p>
             <input class="control_button" type="submit" value="Продолжить">

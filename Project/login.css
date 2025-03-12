@@ -1,65 +1,83 @@
-.header{
-    font-size: 140px;
-    font-weight: 700;
-    font-family: "Golos Text", sans-serif;
-    line-height: 180px;
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    font: 700 140px/1.28 "Golos UI", sans-serif;
     letter-spacing: -1.5px;
     color: #222222;
-    width: 385px;
-    height: 180px;
-    top: 182.37px;
-    left: 179px;
-    margin: 0px 0px 10px;
 }
 
-.main_photo{
-    width: 462px;
-    height: 501px;
-    top: 289px;
-    left: 289px;
+.main_photo {
+    max-width: 100%;
 }
 
-.form_text{
-    width: 343px;
-    height: 18px;
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+.form {
+    max-width: 343px;
+}
+
+.label {
+    display: block;
+    font: 400 15px/1.2 "Golos UI", sans-serif;
+    max-width: 343px;
+    color: #222222;
+    margin-bottom: 5px;
     letter-spacing: -0.15px;
 }
 
-.field{
-    width: 343px;
-    height: 44px;
-    border: 0;
-    justify-content: space-between;
-    padding: 13px, 12px, 13px, 12px;
+.input {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    border: 1px solid #F2F3F5;
+    padding: 13px 12px;
     color: #222222;
     background-color: #F2F3F5;
     border-radius: 10px;
+    font: 400 15px/1.2 "Golos UI", sans-serif;
+    transition: border 0.3s ease;
+    outline: none;
 }
 
-.hint{
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+.input:focus {
+    border: 1px solid #3f8ae0;
+}
+
+.input_error {
+    border: 1px solid #E64646;
+}
+
+.hint {
+    display: block;
+    font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
+    margin-bottom: 15px;
     color: #808080;
 }
 
-.control_button{
-    width: 343px;
-    height: 48px;
+.hint_error {
+    color: #E64646;
+}
+
+.control_button {
+    display: block;
+    width: 100%;
+    margin-top: 32px;
+    font: 500 16px "Golos UI", sans-serif;
+    border: 2px solid #222222;
     border-radius: 10px;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding: 14.5px;
     color: #FFFFFF;
     background-color: #222222;
-    font-family: "Golos Text", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
+    transition: border, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.control_button:focus {
+    border: 2px solid #3f8ae0;
+}
+
+.control_button:disabled {
+    border: 2px solid #B4B4B4;
+    background-color: #B4B4B4;
 }

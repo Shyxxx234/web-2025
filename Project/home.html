@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title>WebGram</title>
-        <meta charset="UTF-8">
-        <link href="home.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="images/Webgram.png">
-    </head>
-    <body>
-        <div>
-            <button class="control_menu" type="button" name="Menu" onclick="window.location.href = 'http://localhost/home';">
-                <img src="images/MenuItemHomeIcon.png" alt="Menu">
-            </button>
-            <p></p>
-            <button class="control_menu" type="button" name="Profile" onclick="window.location.href = 'http://localhost/profile';">
-                <img src="images/MenuItemProfileIcon.png" alt="Profile">
-            </button>
-            <p></p>
-            <button class="control_menu" type="button" name="Add post">
-                <img src="images/MenuItemAddNewPost.png" alt="Add post">
-            </button>
-            <p></p>
+
+<head>
+    <title>WebGram</title>
+    <meta charset="UTF-8">
+    <link href="home.css" rel="stylesheet">
+    <link href="fonts/font.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Webgram.png">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu_icon_wrapper menu_icon_wrapper_active">
+            <div class="menu_icon menu_icon_home">
+                <img src="images/MenuItemHomeIcon.png" alt="Menu"
+                    onclick="window.location.href = 'http://localhost/home';">
+            </div>
         </div>
-        <img class="avatar" src="images/ProfileImage.png" alt="Avatar">
-        <span class="avatar_name">Ваня Денисов</span>
-        <p></p>
-        <img src="images/PostPhoto.png" alt="Photo">
-        <p></p>
-        <img src="images/like.png" alt="Reaction">
-        <span class="reaction">203</span>
-        <p class="main_text">Так красиво сегодня на улице! Настоящая зима))) Вспоминается,</p>
-        <p class="main_text">Бродский: "Поздной ночью, в уснувшей долине, на самом дне, в гор...</p>
-        <p class="more_option">ещё</p>
-        <p></p>
-        <p class="time">2 часа назад</p>
-        <p></p>
-        <img class="avatar" src="images/Avatar.png" alt="Avatar">
-        <span class="avatar_name">Лиза Дёмина</span>
-        <p></p>
+        <div class="menu_icon_wrapper">
+            <div class="menu_icon menu_icon_profile">
+                <img src="images/MenuItemProfileIcon.png" alt="Profile"
+                    onclick="window.location.href = 'http://localhost/profile';">
+            </div>
+        </div>
+        <div class="menu_icon_wrapper">
+            <div class="menu_icon menu_icon_add">
+                <img src="images/MenuItemAddNewPost.png" alt="Add Post">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="name">
+            <img class="avatar" src="images/ProfileImage.png" alt="Avatar">
+            <span class="avatar_name">Ваня Денисов</span>
+        </div>
+        <img class="post_photo" src="images/PostPhoto.png" alt="Photo">
+        <div class="reaction">
+            <img src="images/like.png" alt="Reaction">
+            <span class="likes">203</span>
+        </div>
+        <span class="main_text">Так красиво сегодня на улице! Настоящая зима))) Вспоминается,</span>
+        <span class="main_text">Бродский: "Поздной ночью, в уснувшей долине, на самом дне, в гор...</span>
+        <span class="more_option">ещё</span>
+        <span class="time">2 часа назад</span>
+    </div>
+    <div>
+        <div class="name">
+            <img class="avatar" src="images/Avatar.png" alt="Avatar">
+            <span class="avatar_name">Лиза Дёмина</span>
+        </div>
         <img src="images/PhotoPostLisaDemina.png" alt="Photo">
-    </body>
+    </div>
+</body>
+
 </html>

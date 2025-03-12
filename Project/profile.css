@@ -1,48 +1,65 @@
-.control_menu{
-    border: 0;
-    background-color: #FFFFFF;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-.profile_photo{
+.menu_icon_wrapper {
+    width: 40px;
+    margin-bottom: 16px;
+    padding: 8px;
+    position: relative;
+}
+
+.menu_icon_wrapper_active::after {
+    display: block;
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #222222;
+    border-radius: 50%;
+}  
+
+.profile_photo {
     border-radius: 16px;
+    margin-bottom: 20px;
 }
 
-.name{
-    font-family: "Golos Text", sans-serif;
-    font-weight: 500;
-    size: 32px;
-    line-height: 32px;
+.name {
+    font: 500 32/1 "Golos UI", sans-serif;
+    display: block;
     letter-spacing: -0.25px;
-    vertical-align: middle;
-    align-content: center;
     color: #222222;
+    margin-bottom: 10px;
 }
 
-.descriprion{
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    size: 15px;
-    line-height: 18px;
+.description {
+    margin-bottom: 12px;
+}
+
+.description_information {
+    font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
-    align-content: center;
-    color: #222222;   
+    color: #222222;  
+    display: block; 
 }
 
-.post_number{
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    size: 15px;
-    line-height: 18px;
+.post_number {
+    font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     vertical-align: middle;
     color: #222222;   
 }
 
-.post_number_block{
+.post_number_information {
     display: inline-block;
     background-color: #F2F3F5;
     vertical-align: middle;
     border-radius: 6px;
     padding: 6px 10px;
-    gap: 6px;
+    margin-bottom: 40px;
+}
+
+.image_post {
+    border-radius: 2px;
 }
