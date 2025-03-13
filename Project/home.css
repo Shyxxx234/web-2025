@@ -23,27 +23,21 @@
 
 .main_text {
     font: 400 15px/1.2 "Golos UI", sans-serif;
-    letter-spacing: -0.15;
+    letter-spacing: -0.15px;
     color: #222222;
     display: block;
 }
 
 .more_option {
+    font: 400 15px/1.2 "Golos UI", sans-serif;
     display: block;
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    size: 15px;
-    line-height: 18px;
     letter-spacing: -0.15px;
     color: #808080;
     margin-bottom: 8px;
 }
 
 .time {
-    font-family: "Golos Text", sans-serif;
-    font-weight: 400;
-    size: 14px;
-    line-height: 18px;
+    font: 400 14px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;  
     opacity: 50%;
