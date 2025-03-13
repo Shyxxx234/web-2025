@@ -7,8 +7,8 @@ BEGIN
   Name := '';
   WRITELN('Content-Type: text/plain');
   WRITELN;
-  Str := GetEnv('QUERY_STRING') + '&';
-  IF POS('name=', Str) <> 0
+  Str := '&' + GetEnv('QUERY_STRING') + '&';
+  IF (POS('&name=', Str) <> 0)
   THEN
     BEGIN 
       DELETE(Str, 1, POS('name=', Str));

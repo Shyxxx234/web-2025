@@ -5,8 +5,8 @@ FUNCTION GetQueryStringParameter(Key: STRING): STRING;
 VAR
   Str: STRING;
 BEGIN
-  Str := GetEnv('QUERY_STRING') + '&'; 
-  IF POS(Key + '=', Str) <> 0
+  Str := '&' + GetEnv('QUERY_STRING') + '&'; 
+  IF POS('&' + Key + '=', Str) <> 0
   THEN
     BEGIN
       DELETE(Str, 1, POS(Key + '=', Str));
