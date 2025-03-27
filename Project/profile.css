@@ -21,8 +21,10 @@
 }  
 
 .profile-photo {
+    display: block;
     border-radius: 16px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    max-width: 123px;
 }
 
 .name {
@@ -30,11 +32,15 @@
     display: block;
     letter-spacing: -0.25px;
     color: #222222;
-    margin-bottom: 10px;
+    max-width: 361px;
+    margin: 0 auto 10px;
+    text-align: center;
 }
 
 .description {
-    margin-bottom: 12px;
+    max-width: 361px;
+    margin: 0 auto 12px;
+    text-align: center;
 }
 
 .description-information {
@@ -48,18 +54,23 @@
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     vertical-align: middle;
-    color: #222222;   
+    color: #222222;  
 }
 
 .post-number-information {
-    display: inline-block;
+    display: block;
     background-color: #F2F3F5;
-    vertical-align: middle;
     border-radius: 6px;
     padding: 6px 10px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px; 
+    max-width: 101px;
 }
 
 .image-post {
     border-radius: 2px;
+}
+
+.content {
+    margin: 0px auto;
+    max-width: 978px;
 }
