@@ -4,14 +4,14 @@
     margin: 0;
 }
 
-.menu_icon_wrapper {
+.menu-icon-wrapper {
     width: 40px;
     margin-bottom: 16px;
     padding: 8px;
     position: relative;
 }
 
-.menu_icon_wrapper_active::after {
+.menu-icon-wrapper-active::after {
     display: block;
     content: '';
     width: 4px;
@@ -20,7 +20,7 @@
     border-radius: 50%;
 }  
 
-.profile_photo {
+.profile-photo {
     border-radius: 16px;
     margin-bottom: 20px;
 }
@@ -37,21 +37,21 @@
     margin-bottom: 12px;
 }
 
-.description_information {
+.description-information {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;  
     display: block; 
 }
 
-.post_number {
+.post-number {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     vertical-align: middle;
     color: #222222;   
 }
 
-.post_number_information {
+.post-number-information {
     display: inline-block;
     background-color: #F2F3F5;
     vertical-align: middle;
@@ -60,6 +60,6 @@
     margin-bottom: 40px;
 }
 
-.image_post {
+.image-post {
     border-radius: 2px;
 }

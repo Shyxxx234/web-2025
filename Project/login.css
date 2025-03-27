@@ -10,7 +10,7 @@
     color: #222222;
 }
 
-.main_photo {
+.main-photo {
     max-width: 100%;
 }
 
@@ -18,7 +18,7 @@
     max-width: 343px;
 }
 
-.login_field {
+.login-field {
     display: block;
     font: 400 15px/1.2 "Golos UI", sans-serif;
     max-width: 343px;
@@ -27,7 +27,7 @@
     letter-spacing: -0.15px;
 }
 
-.write_information {
+.write-information {
     display: block;
     margin-bottom: 5px;
     width: 100%;
@@ -41,11 +41,11 @@
     outline: none;
 }
 
-.write_information:focus {
+.write-information:focus {
     border: 1px solid #3f8ae0;
 }
 
-.write_information_error {
+.write-information-error {
     border: 1px solid #E64646;
 }
 
@@ -57,11 +57,11 @@
     color: #808080;
 }
 
-.hint_error {
+.hint-error {
     color: #E64646;
 }
 
-.control_button {
+.control-button {
     display: block;
     width: 100%;
     margin-top: 32px;
@@ -75,11 +75,11 @@
     cursor: pointer;
 }
 
-.control_button:focus {
+.control-button:focus {
     border: 2px solid #3f8ae0;
 }
 
-.control_button:disabled {
+.control-button:disabled {
     border: 2px solid #B4B4B4;
     background-color: #B4B4B4;
 }
