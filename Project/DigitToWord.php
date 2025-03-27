@@ -3,37 +3,37 @@ if (isset($_GET['digit'])) {
     $digit = $_GET['digit'];
     switch ($digit) {
         case 0:
-            echo "<p>Ноль</p>";
+            echo "Ноль";
             break;  
         case 1:
-            echo "<p>Один</p>";
+            echo "Один";
             break;
         case 2:
-            echo "<p>Два</p>";
+            echo "Два";
             break;
         case 3:
-            echo "<p>Три</p>";
+            echo "Три";
             break;
         case 4:
-            echo "<p>Четыре</p>";
+            echo "Четыре";
             break;
         case 5:
-            echo "<p>Пять</p>";
+            echo "Пять";
             break;
         case 6:
-            echo "<p>Шесть</p>";
+            echo "Шесть";
             break;
         case 7:
-            echo "<p>Семь</p>";
+            echo "Семь";
             break;
         case 8:
-            echo "<p>Восемь</p>";
+            echo "Восемь";
             break;
         case 9:
-            echo "<p>Девять</p>";
+            echo "Девять";
             break;
         default:
-            echo "<p>Введите цифру</p>";
+            echo "Введите цифру";
             break;
     }
 }

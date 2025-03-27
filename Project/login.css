@@ -66,7 +66,7 @@
     width: 100%;
     margin-top: 32px;
     font: 500 16px "Golos UI", sans-serif;
-    border: 2px solid #222222;
+    border: 1px solid #222222;
     border-radius: 10px;
     padding: 14.5px;
     color: #FFFFFF;
@@ -76,10 +76,10 @@
 }
 
 .control-button:focus {
-    border: 2px solid #3f8ae0;
+    border: 1px solid #3f8ae0;
 }
 
 .control-button:disabled {
-    border: 2px solid #B4B4B4;
+    border: 1px solid #B4B4B4;
     background-color: #B4B4B4;
 }

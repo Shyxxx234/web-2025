@@ -27,7 +27,7 @@ if (isset($_GET['date'])) {
     } elseif (($month == 11 && $day >= 22) || ($month == 12 && $day <= 21)) {
         echo "<p>Стрелец</p>";
     } else {
-        echo "<p>Введите дату</p>";
+        echo "<p>Введите корректную дату</p>";
     }
 }
 ?>

@@ -7,4 +7,4 @@ if (isset($_GET['year'])) {
         echo "<p>NO</p>";
     }
 }
-?>
+?>  
