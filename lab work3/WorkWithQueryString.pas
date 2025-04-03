@@ -5,7 +5,7 @@ FUNCTION GetQueryStringParameter(Key: STRING): STRING;
 VAR
   Str, TempStr: STRING;
   StartPos, EndPos: INTEGER;
-BEGIN
+BEGIN {GetQueryStringParameter}
   Str := GetEnv('QUERY_STRING');
   TempStr := '';
   StartPos := POS(Key + '=', Str);
@@ -20,7 +20,7 @@ BEGIN
       TempStr := Copy(TempStr, 1, EndPos - 1)
     END;
   GetQueryStringParameter := TempStr
-END;
+END; {GetQueryStringParameter}
 
 BEGIN {WorkWithQueryString}
   WRITELN('Content-Type: text/plain');
