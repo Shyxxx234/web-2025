@@ -12,12 +12,12 @@ BEGIN {GetQueryStringParameter}
   IF StartPos <> 0 
   THEN
     BEGIN
-      TempStr := Copy(Str, StartPos + Length(Key) + 1, Length(Str));
+      TempStr := COPY(Str, StartPos + Length(Key) + 1, Length(Str));
       EndPos := POS('&', TempStr);
       IF EndPos = 0 
       THEN
         EndPos := Length(TempStr) + 1;
-      TempStr := Copy(TempStr, 1, EndPos - 1)
+      TempStr := COPY(TempStr, 1, EndPos - 1)
     END;
   GetQueryStringParameter := TempStr
 END; {GetQueryStringParameter}
