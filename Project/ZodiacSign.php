@@ -3,31 +3,31 @@ if (isset($_GET['date'])) {
     $date = $_GET['date'];
     list($day, $month, $year) = explode('.', $date);
     if (($month == 12 && $day >= 22) || ($month == 1 && $day <= 20)) {
-        echo "<p>Козерог</p>";
+        echo "Козерог";
     } elseif (($month == 1 && $day >= 22) || ($month == 2 && $day <= 20)) {
-        echo "<p>Водолей</p>";
+        echo "Водолей";
     } elseif (($month == 2 && $day >= 21) || ($month == 3 && $day <= 20)) {
-        echo "<p>Рыбы</p>";
+        echo "Рыбы";
     } elseif (($month == 3 && $day >= 21) || ($month == 4 && $day <= 19)) {
-        echo "<p>Овен</p>";
+        echo "Овен";
     } elseif (($month == 4 && $day >= 20) || ($month == 5 && $day <= 20)) {
-        echo "<p>Телец</p>";
+        echo "Телец";
     } elseif (($month == 5 && $day >= 21) || ($month == 6 && $day <= 21)) {
-        echo "<p>Близнецы/p>";
+        echo "Близнецы/p>";
     } elseif (($month == 6 && $day >= 22) || ($month == 7 && $day <= 22)) {
-        echo "<p>Рак</p>";
+        echo "Рак";
     } elseif (($month == 7 && $day >= 23) || ($month == 8 && $day <= 22)) {
-        echo "<p>Лев</p>";
+        echo "Лев";
     } elseif (($month == 8 && $day >= 23) || ($month == 9 && $day <= 22)) {
-        echo "<p>Дева</p>";
+        echo "Дева";
     } elseif (($month == 9 && $day >= 23) || ($month == 10 && $day <= 23)) {
-        echo "<p>Весы</p>";
+        echo "Весы";
     } elseif (($month == 10 && $day >= 24) || ($month == 11 && $day <= 21)) {
-        echo "<p>Скорпион</p>";
+        echo "Скорпион";
     } elseif (($month == 11 && $day >= 22) || ($month == 12 && $day <= 21)) {
-        echo "<p>Стрелец</p>";
+        echo "Стрелец";
     } else {
-        echo "<p>Введите корректную дату</p>";
+        echo "Введите корректную дату";
     }
 }
 ?>
