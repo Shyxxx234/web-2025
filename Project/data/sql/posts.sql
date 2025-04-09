@@ -69,15 +69,14 @@ VALUES
         'user'
     );
 
-INSERT INTO
-    post ( 
-        image_url, 
-        content, 
-        created_by
-    )
-VALUES
-    (
-        'images/post_photo.png', 
-        'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор...»',
-        2
-    );
+INSERT INTO post (
+    title,
+    image_url,
+    content,
+    created_by
+) VALUES (
+    'Красота зимнего дня', 
+    'images/post_photo.png',
+    'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор...»',
+    2
+);
