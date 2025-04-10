@@ -16,6 +16,7 @@
     content: '';
     width: 4px;
     height: 4px;
+    margin: auto;
     background: #222222;
     border-radius: 50%;
 }  
@@ -68,9 +69,17 @@
 
 .image-post {
     border-radius: 2px;
+    width: 322.35px;
+    height: 322.35px;
 }
 
 .content {
     margin: 0px auto;
-    max-width: 978px;
+    max-width: 975px;
+}
+
+.post_place {
+    display: flexbox;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }

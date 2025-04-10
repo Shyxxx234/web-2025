@@ -13,21 +13,23 @@
     font: 500 14px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
+    display: block;
+    align-content: center;
+    margin-left: 10px;
 }
 
 .likes {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
-    vertical-align: middle;
+    margin-left: 3px;
 }
 
 .main-text {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
-    display: block;
-    margin: 0 auto 0;
-    max-width: 476px;
+    display: inline-block;
+    max-width: 480px;
 }
 
 .more-option {
@@ -35,7 +37,7 @@
     display: block;
     letter-spacing: -0.15px;
     color: #808080;
-    margin: 0 auto 8px;
+    margin-bottom: 8px;
     max-width: 28px;
 }
 
@@ -45,21 +47,19 @@
     color: #222222;  
     opacity: 50%;
     display: block;
-    margin: 0 auto 20px;
+    margin-bottom: 20px;
     max-width: 79px;
-}
-
-.control-menu {
-    border: 0;
-    background-color: #FFFFFF;
-    display: block;
 }
 
 .menu-icon-wrapper {
     width: 40px;
     margin-bottom: 16px;
     padding: 8px;
+    margin: 16px;
     position: relative;
+    left: 0;
+    transform: scale(1); /* Фиксированный масштаб */
+  transform-origin: 0 0; 
 }
 
 .menu-icon-wrapper-active::after {
@@ -67,28 +67,67 @@
     content: '';
     width: 4px;
     height: 4px;
+    margin: auto;
     background: #222222;
     border-radius: 50%;
 }   
 
 .post-photo {
     display: block;
-    max-width: 100%;
-    margin: 0 auto 16px;
+    width: 474px;
+    height: 474px;
+    margin-bottom: 16px;
 }
 
 .user-info {
     max-width: 474px;
     margin: 0 auto 16px;
+    display: inline-flex;
+    width: 474px;   
 }
 
 .reaction {
-    margin: 0 auto 16px;
+    margin-bottom: 16px;
     max-width: 69px;
     border-radius: 8px;
     padding: 6px 12px;
     background-color: rgba(34, 34, 34, 0.05);
-    display: block;
+    display: inline-flex;
     width: 69px;
 }
+
+.post {
+    margin: 0 auto 0;
+    display: flexbox;
+    max-width: 474px;
+}
+
+.menu {
+    position: fixed;
+    max-width: 74px;
+    height: 100%;
+    width: 80px;
+    border-bottom: 0px;
+    border-color:rgba(34, 34, 34, 0.05);
+    outline: auto;
+    outline-color: rgba(34, 34, 34, 0.05);
+}
+
+.page {
+    display: inline-flex;
+    flex-direction: row;
+    position: sticky;
+}
+
+.post-place {
+    display: flexbox;
+    margin: 73px auto 0;
+    width: 100vw;
+}
+
+.pencil {
+    display: block;
+    margin-left: auto;
+}
+
 
