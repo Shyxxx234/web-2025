@@ -14,7 +14,7 @@ VALUES
         'elon@tesla.com',
         'elonmusk',
         'Илон Маск',
-        'images/elon.jpg',
+        'elon.jpg',
         'Предприниматель, инженер, изобретатель. Основатель SpaceX, Tesla, Neuralink и The Boring Company.',
         'user'
     );
@@ -29,7 +29,7 @@ INSERT INTO
 VALUES
     (
         'Успешный запуск Starship! Новый этап в освоении космоса',
-        'images/starship.jpg',
+        'starship.jpg',
         'Сегодня мы совершили исторический запуск Starship - самой мощной ракеты в истории человечества. 
         
         Основные достижения этого запуска:
@@ -64,7 +64,7 @@ VALUES
         'vanyadenisov@gmail.com',
         'qwerty123',
         'Ваня Денисов',
-        'images/avatar.png',
+        'avatar.png',
         'Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!',
         'user'
     );
@@ -76,7 +76,7 @@ INSERT INTO post (
     created_by
 ) VALUES (
     'Красота зимнего дня', 
-    'images/post_photo.png',
+    'post_photo.png',
     'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор...»',
     2
 );
