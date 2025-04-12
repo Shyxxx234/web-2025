@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['digit'])) {
-    $digit = $_GET['digit'];
+if (isset($_POST['digit'])) {
+    $digit = $_POST['digit'];
     switch ($digit) {
         case 0:
             echo "Ноль";

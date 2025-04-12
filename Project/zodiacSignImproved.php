@@ -1,7 +1,44 @@
 <?php
+
 if (isset($_POST['date'])) {
     $date = $_POST['date'];
-    list($day, $month, $year) = explode('.', $date);
+    $sep1Pos = -1;
+    $sep2Pos = -1;
+    for ($i = 0; $i < strlen($date); $i++) {
+        if ($date[$i] < '0' || $date[$i] > '9') {
+            if ($sep1Pos == -1) {
+                $sep1Pos = $i;
+            } else {
+                $sep2Pos = $i;
+                break;
+            }
+        }
+    }
+
+    if ($sep1Pos == -1 || $sep2Pos == -1) {
+        return "Неверный формат даты";
+    }
+
+    if ($sep1Pos == 4) {
+        $year = substr($date, 0, 4);
+        $month = substr($date, 5, 2);
+        $day = substr($date, 8, 2);
+    } elseif ($sep2Pos == 7) {
+        $year = substr($date, 3, 4);
+        $month = substr($date, 0, 2);
+        $day = substr($date, 8, 2);
+    } elseif ($sep2Pos == 5) {
+        $year = substr($date, 6, 4);
+        $month = substr($date, 0, 2);
+        $day = substr($date, 3, 2);
+    }
+
+    if ($month > 12 && $day <= 12) {
+        $temp = $month;
+        $month = $day;
+        $day = $temp;
+    }
+
     if (($month == 12 && $day >= 22) || ($month == 1 && $day <= 20)) {
         echo "Козерог";
     } elseif (($month == 1 && $day >= 22) || ($month == 2 && $day <= 20)) {
