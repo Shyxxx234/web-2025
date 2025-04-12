@@ -1,5 +1,7 @@
 <?php
-
+$month = 0;
+$day = 0;
+$year = 0;
 if (isset($_POST['date'])) {
     $date = $_POST['date'];
     $sep1Pos = -1;
@@ -14,30 +16,58 @@ if (isset($_POST['date'])) {
             }
         }
     }
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['february', 'февраль'], 1, $date);
+    $date = str_replace(['march', 'март'], 1, $date);
+    $date = str_replace(['april', 'апрель'], 1, $date);
+    $date = str_replace(['may', 'май'], 1, $date);
+    $date = str_replace(['june', 'июнь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+    $date = str_replace(['january', 'январь'], 1, $date);
+
+
 
     if ($sep1Pos == -1 || $sep2Pos == -1) {
         return "Неверный формат даты";
     }
+    
+    // $month = match ($month) {
+    //     'january', 'январь' => 1,
+    //     'february', 'февраль' => 2,  
+    //     'march', 'март' => 3,
+    //     'april', 'апрель' => 4,
+    //     'may', 'май' => 5,
+    //     'june', 'июнь' => 6,
+    //     'july', 'июль' => 7,
+    //     'august', 'август' => 8,
+    //     'september', 'сентябрь' => 9,
+    //     'october', 'октябрь' => 10,
+    //     'november', 'ноябрь' => 11,
+    //     'december', 'декабрь' => 12,
+    //     default => 0
+    // };
 
-    if ($sep1Pos == 4) {
-        $year = substr($date, 0, 4);
-        $month = substr($date, 5, 2);
-        $day = substr($date, 8, 2);
-    } elseif ($sep2Pos == 7) {
-        $year = substr($date, 3, 4);
-        $month = substr($date, 0, 2);
-        $day = substr($date, 8, 2);
-    } elseif ($sep2Pos == 5) {
-        $year = substr($date, 6, 4);
-        $month = substr($date, 0, 2);
-        $day = substr($date, 3, 2);
-    }
+        $year = substr($date, 0, $sep1Pos - 1);
+        $month = substr($date, $sep1Pos + 1, $sep2Pos - $sep1Pos);
+        $day = substr($date, $sep2Pos + 1, strlen($date) - $sep2Pos);
+
+
+
 
     if ($month > 12 && $day <= 12) {
         $temp = $month;
         $month = $day;
         $day = $temp;
     }
+
+    if ($month < 10){
+        $month = "0" . $month;
+    }
+    echo $month;
 
     if (($month == 12 && $day >= 22) || ($month == 1 && $day <= 20)) {
         echo "Козерог";
