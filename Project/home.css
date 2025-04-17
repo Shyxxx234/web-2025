@@ -58,8 +58,6 @@
     margin: 16px;
     position: relative;
     left: 0;
-    transform: scale(1);
-    transform-origin: 0 0; 
     cursor: pointer;
 }
 
@@ -99,7 +97,7 @@
 
 .post {
     margin: 0 auto 0;
-    display: flexbox;
+
     max-width: 474px;
 }
 
@@ -115,11 +113,9 @@
 .page {
     display: inline-flex;
     flex-direction: row;
-    position: sticky;
 }
 
 .post-place {
-    display: flexbox;
     margin: 73px auto 0;
     width: 100vw;
 }
