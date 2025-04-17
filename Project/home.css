@@ -108,8 +108,6 @@
     max-width: 74px;
     height: 100%;
     width: 80px;
-    border-bottom: 0px;
-    border-color:rgba(34, 34, 34, 0.05);
     outline: auto;
     outline-color: rgba(34, 34, 34, 0.05);
 }
