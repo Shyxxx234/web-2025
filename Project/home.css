@@ -28,7 +28,7 @@
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
-    display: inline-block;
+    display: block;
     max-width: 480px;
 }
 
@@ -47,8 +47,8 @@
     color: #222222;  
     opacity: 50%;
     display: block;
-    margin-bottom: 20px;
-    max-width: 79px;
+    margin-bottom: 36px;
+    max-width: 100px;
 }
 
 .menu-icon-wrapper {
