@@ -7,6 +7,8 @@
 .avatar {
     border-radius: 6px;
     max-width: 100%;
+    width: 33px;
+    height: 33px;
 }
 
 .avatar-name {
@@ -30,6 +32,7 @@
     color: #222222;
     display: block;
     max-width: 480px;
+    text-align: justify;
 }
 
 .more-option {
@@ -87,12 +90,10 @@
 
 .reaction {
     margin-bottom: 16px;
-    max-width: 69px;
     border-radius: 8px;
     padding: 6px 12px;
     background-color: rgba(34, 34, 34, 0.05);
     display: inline-flex;
-    width: 69px;
 }
 
 .post {
