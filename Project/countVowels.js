@@ -1,14 +1,16 @@
-const vowels = ['у', 'е', 'ы', 'а', 'о', 'я', 'и', 'ю', 'ё', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю']
+const vowels = ['у', 'е', 'ы', 'а', 'о', 'я', 'и', 'ю', 'ё', 'э', 'У', 'Е', 'Ы', 'А', 'О', 'Э', 'Я', 'И', 'Ю', 'Ё']
 
 function countVowels(str) {
-    counter = 0
+    const foundVowels = []
     for (elt of str) {
         if (vowels.includes(elt)) {
-            counter += 1
+            foundVowels.push(elt)
         }
     }
-    return counter
+    const count = foundVowels.length
+    const vowelsList = ' (' + foundVowels.join(', ') + ')'
+    return String(count) + vowelsList
 }
 
 const message = "Привет, мир"
-console.log(countVowels(message))
+console.log(countVowels(message)) 
