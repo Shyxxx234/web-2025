@@ -10,5 +10,5 @@ function countVowels(str) {
     return counter
 }
 
-message = "Привет, мир"
+const message = "Привет, мир"
 console.log(countVowels(message))

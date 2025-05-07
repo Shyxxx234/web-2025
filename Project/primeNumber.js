@@ -26,10 +26,10 @@ function isPrimeNumber(number) {
             }
         }
     } else {
-        console.log("Ошибка входной тип не соотвествует number или object")
+        console.log("Входной тип не соотвествует типу number или object")
     }
 }
 
-let n = 1
+const n = [1, 2, 3, "s", 5, 6, '7', 8, 9, 10]
 
 isPrimeNumber(n)
