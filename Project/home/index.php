@@ -1,12 +1,12 @@
 <?php
-include("home/home.html");
-const FILENAME_POST = 'json/posts.json';
-const FILENAME_USER = 'json/users.json';
-
-
+include("home.html");
+const FILENAME_POST = '../json/posts.json';
+const FILENAME_USER = '../json/users.json';
 
 $jsonDataPost = json_decode(file_get_contents(FILENAME_POST), true);
 $jsonDataUser = json_decode(file_get_contents(FILENAME_USER), true);
+
+$userId = isset($_GET['id']) ? $_GET['id'] : null;
 
 function getInfo($jsonUser, $jsonPost, $id)
 {
@@ -83,35 +83,16 @@ function timeAgo($timestamp)
 }
 
 if (isset($jsonDataUser) && $jsonDataUser) {
-    $postId = 0;
     foreach ($jsonDataPost as $post) {
-        $postId += 1;
-        $info = getInfo($jsonDataUser, $jsonDataPost, $postId);
-        $avatar = "images/avatars/" . $info[0];
-        $postPhoto = "images/" . $info[2];
+        if ($userId && $post['created_by_user_id'] != $userId) continue;
+        $info = getInfo($jsonDataUser, $jsonDataPost, $post['id']);
+        $avatar = "../images/avatars/" . $info[0];
+        $postPhoto = "../images/" . $info[2];
         $time = timeAgo($info[4]);
-        $html = <<<HTML
-        <div class="post">
-            <div class="user-info">
-                <img class="avatar" src= {$avatar} alt="Avatar">
-                <span class="avatar-name">$info[1]</span>
-                <img class="pencil" src="images/pencil.png" alt="Иконка для редактирования">
-            </div>
-            <img class="post-photo" src= {$postPhoto} alt="Фото поста">
-            <div class="reaction">
-                <img src="images/like.png" alt="Реакции">
-                <span class="likes">$info[5]</span>
-            </div>
-            <span class="main-text">$info[3]</span>
-            <span class="more-option">ещё</span>
-            <span class="time">$time</span>
-        </div>
-        HTML;
-        echo $html;
+        include("../templates/post.php");
     }
     echo "</div>";
     echo "</div>";
     echo "</div>";
 }
-
 ?>
