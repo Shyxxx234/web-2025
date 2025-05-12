@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-.menu-icon-wrapper {
+.menu__item {
     width: 40px;
     margin-bottom: 16px;
     padding: 8px;
@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.menu-icon-wrapper-active::after {
+.menu__item--active::after {
     display: block;
     content: '';
     width: 4px;
@@ -24,7 +24,7 @@
     border-radius: 50%;
 }  
 
-.profile-photo {
+.content__avatar {
     display: block;
     border-radius: 16px;
     margin: 0 auto 20px;
@@ -32,7 +32,7 @@
     height: 123px;
 }
 
-.name {
+.content__name {
     font: 500 32px/1 "Golos UI", sans-serif;
     display: block;
     letter-spacing: -0.25px;
@@ -42,27 +42,27 @@
     text-align: center;
 }
 
-.description {
+.content__description {
     max-width: 361px;
     margin: 0 auto 12px;
     text-align: center;
 }
 
-.description-information {
+.content__description-information {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;  
     display: block; 
 }
 
-.post-number {
+.content__post-number {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     margin-left: 6px;
     letter-spacing: -0.15px;
     color: #222222;  
 }
 
-.post-number-information {
+.content__post-number-information {
     display: inline-flex;
     background-color: #F2F3F5;
     border-radius: 6px;
@@ -70,7 +70,7 @@
     margin: 0 auto 40px; 
 }
 
-.image-post {
+.content__image-post {
     border-radius: 2px;
     width: 322.35px;
     height: 322.35px;

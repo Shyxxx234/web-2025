@@ -60,7 +60,7 @@ if (isset($jsonDataUser) && $jsonDataUser) {
             $info = getInfo($jsonDataUser, $jsonDataPost, $userId, $postId);
             if ($info['createdBy'] == $userId) {
                 $postPhoto = "../images/" . $info['image'];
-                echo "<img class='image-post' src='../{$postPhoto}' alt='Фотография поста'>";
+                echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
             }
         }
         echo "</div>";

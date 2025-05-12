@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-.header {
+.hero__title {
     font: 700 140px/1.28 "Golos UI", sans-serif;
     letter-spacing: -1.5px;
     color: #222222;
@@ -12,7 +12,7 @@
     top: 0vw;
 }
 
-.main-photo {
+.hero__image {
     max-width: 462px;
     float: right;
     display: block;
@@ -24,7 +24,7 @@
     display: block;
 }
 
-.login-field {
+.login__field {
     display: block;
     font: 400 15px/1.2 "Golos UI", sans-serif;
     max-width: 343px;
@@ -33,7 +33,7 @@
     letter-spacing: -0.15px;
 }
 
-.write-information {
+.login__email {
     display: block;
     margin-bottom: 5px;
     width: 100%;
@@ -47,15 +47,15 @@
     outline: none;
 }
 
-.write-information:focus {
+.login__email:focus {
     border: 1px solid #3F8AE0;
 }
 
-.write-information-error {
+.login__email--error {
     border: 1px solid #E64646;
 }
 
-.hint {
+.login__hint {
     display: block;
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
@@ -63,11 +63,11 @@
     color: #808080;
 }
 
-.hint-error {
+.login__hint--error {
     color: #E64646;
 }
 
-.control-button {
+.login__control-button {
     display: block;
     width: 100%;
     margin-top: 32px;
@@ -98,7 +98,7 @@
     width: 100vw;
 }
 
-.text_image {
+.hero {
     position: relative;
     width: 552px;
     height: 608px;

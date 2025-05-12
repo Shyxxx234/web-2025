@@ -1,30 +1,24 @@
 INSERT INTO
     user (
-        username,
-        email,
-        user_password,
-        full_name,
-        avatar_url,
-        bio,
-        user_role
+        name,
+        avatar,
+        description,
+        posts
     )
 VALUES
     (
-        'elonmusk',
-        'elon@tesla.com',
-        'elonmusk',
         'Илон Маск',
-        'elon.jpg',
+        'elon_musk.jpg',
         'Предприниматель, инженер, изобретатель. Основатель SpaceX, Tesla, Neuralink и The Boring Company.',
-        'user'
+        1
     );
 
 INSERT INTO
-    post (
-        title, 
-        image_url, 
+    post ( 
+        image, 
         content, 
-        created_by
+        created_by_user_id,
+        likes
     )
 VALUES
     (
@@ -45,18 +39,16 @@ VALUES
         Будущее наступает быстрее, чем кажется.
         
         #MarsOrBust #SpaceX #Starship',
-        1
+        1,
+        2016
     );
 
 INSERT INTO
     user (
-        username,
-        email,
-        user_password,
-        full_name,
-        avatar_url,
-        bio,
-        user_role
+        name,
+        avatar,
+        description,
+        posts
     )
 VALUES
     (
@@ -70,13 +62,14 @@ VALUES
     );
 
 INSERT INTO post (
-    title,
     image_url,
     content,
-    created_by
+    created_by_user_id,
+    likes
 ) VALUES (
     'Красота зимнего дня', 
     'post_photo.png',
     'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор...»',
-    2
+    2,
+    204
 );

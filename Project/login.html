@@ -11,18 +11,18 @@
 
 <body>
     <div class="page">
-        <div class="text_image">
-            <!-- <h1 class="header">Войти</h1> -->
-            <img class="main-photo" src="images/happy_man_for_login_page.png" alt=" Фотография счастливого человека">
+        <div class="hero">
+             <h1 class="hero__title">Войти</h1>
+            <img class="hero__image" src="images/happy_man_for_login_page.png" alt=" Фотография счастливого человека">
         </div>
         <form action="home" class="login">
-            <label class="login-field" for="email">Электропочта</label>
-            <input id="email" class="write-information write-information-error" type="email" name="Email" placeholder="" required>
-            <span class="hint hint-error">Введите электропочту в формате *****@***.**</span>
-            <label class="login-field" for="password">Пароль</label>
-            <input id="password" class="write-information write-information-error password" type="password" name="password" placeholder="" required>
-            <img class="eye" src="images/eye_off.png" alt="Иконка глаза">
-            <input class="control-button" type="submit" value="Продолжить">
+            <label class="login__field" for="email">Электропочта</label>
+            <input id="email" class="login__email login__email--error" type="email" name="Email" placeholder="" required>
+            <span class="login__hint login__hint--error">Введите электропочту в формате *****@***.**</span>
+            <label class="login__field" for="password">Пароль</label>
+            <input id="password" class="login__email login__email--error" type="password" name="password" placeholder="" required>
+            <img class="login__toggle-icon" src="images/eye_off.png" alt="Иконка глаза">
+            <input class="login__control-button" type="submit" value="Продолжить">
         </form>
     </div>
 </body>

@@ -4,14 +4,14 @@
     margin: 0;
 }
 
-.avatar {
+.user-info__avatar {
     border-radius: 6px;
     max-width: 100%;
     width: 33px;
     height: 33px;
 }
 
-.avatar-name {
+.user-info__name {
     font: 500 14px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
@@ -20,13 +20,13 @@
     margin-left: 10px;
 }
 
-.likes {
+.post__likes {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     margin-left: 3px;
 }
 
-.main-text {
+.post__text {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
@@ -35,7 +35,7 @@
     text-align: justify;
 }
 
-.more-option {
+.post__more-btn {
     font: 400 15px/1.2 "Golos UI", sans-serif;
     display: block;
     letter-spacing: -0.15px;
@@ -44,7 +44,7 @@
     max-width: 28px;
 }
 
-.time {
+.post__time {
     font: 400 14px/1.2 "Golos UI", sans-serif;
     letter-spacing: -0.15px;
     color: #222222;  
@@ -54,7 +54,7 @@
     max-width: 100px;
 }
 
-.menu-icon-wrapper {
+.menu__item {
     width: 40px;
     margin-bottom: 16px;
     padding: 8px;
@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-.menu-icon-wrapper-active::after {
+.menu__item--active::after {
     display: block;
     content: '';
     width: 4px;
@@ -74,7 +74,7 @@
     border-radius: 50%;
 }   
 
-.post-photo {
+.post__photo {
     display: block;
     width: 474px;
     height: 474px;
@@ -88,7 +88,7 @@
     width: 474px;   
 }
 
-.reaction {
+.post__reactions {
     margin-bottom: 16px;
     border-radius: 8px;
     padding: 6px 12px;
@@ -121,7 +121,7 @@
     width: 100vw;
 }
 
-.pencil {
+.user-info__edit-icon {
     display: block;
     margin-left: auto;
 }
