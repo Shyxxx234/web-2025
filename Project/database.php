@@ -10,10 +10,10 @@ function connectDatabase(): PDO
 
 function savePostToDatabase(PDO $connection, array $postParams): int
 {
-    $title = $connection->quote($postParams['title']);
     $content = $connection->quote($postParams['content']);
-    $image_URL = $connection->quote($postParams['image_URL']);
-    $created_by = $connection->quote($postParams['created_by']);
+    $image = $connection->quote($postParams['image']);
+    $created_by_user_id = $connection->quote($postParams['created_by_user_id']);
+    $likes = $connection->quote($postParams['likes']);
     $query = <<<SQL
         INSERT INTO post (image, content, created_by_user_id, likes)
         VALUES (:image, :content, :created_by_user_id, :likes);
@@ -28,7 +28,7 @@ function savePostToDatabase(PDO $connection, array $postParams): int
     return (int) $connection->lastInsertId();
 }
 
-function findPostInDatabase(PDO $connection, int $id): ?array
+function findPostInDatabasePost(PDO $connection, int $id): ?array
 {
     $query = <<<SQL
         SELECT
@@ -40,32 +40,35 @@ function findPostInDatabase(PDO $connection, int $id): ?array
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row ?: null;
 }
-$id = 1;
-while ($id <= 2) {
-    $post = findPostInDatabase($connection, $id);
 
-    if ($post) {
-        echo '<div class="post" style="border:1px solid #ddd; padding:20px; margin:20px;">';
-        if (!empty($post['image'])) {
-            $imagePath = '/images/' . $post['image'];
-            $absolutePath = $_SERVER['DOCUMENT_ROOT'] . $imagePath;
-            if (file_exists($absolutePath)) {
-                echo '<img src="' . htmlspecialchars($imagePath) . '" 
-                 alt="Изображение поста" style="max-width:500px; display:block; margin:10px 0;">';
-            } else {
-                echo '<p style="color:red;">Изображение не найдено по пути: ' .
-                htmlspecialchars($absolutePath) . '</p>';
-            }
-        }
+function findPostInDatabaseUser(PDO $connection, int $id): ?array
+{
+    $query = <<<SQL
+        SELECT
+          id, name, avatar, description, posts
+        FROM user
+        WHERE id = $id
+        SQL;
+    $statement = $connection->query($query);
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    return $row ?: null;
+}
+function findPhoto(PDO $connection, int $post_id): ?array
+{
+    $query = <<<SQL
+        SELECT image 
+        FROM images
+        WHERE post_id = $post_id
+        SQL;
+    $statement = $connection->query($query);
+    $row = $statement->fetchAll(PDO::FETCH_COLUMN);
+    return $row ?: [];
+}
 
-        echo '<div class="content" style="margin:15px 0;">' .
-        nl2br(htmlspecialchars($post['content'])) . '</div>';
-        echo '<p>Автор: ' . htmlspecialchars($post['created_by_user_id']) . '</p>';
-        echo '<p>Лайков: ' . htmlspecialchars($post['likes']) . '</p>';
-        echo '<p>Дата: ' . htmlspecialchars($post['created_at']) . '</p>';
-        echo '</div>';
-    } else {
-        echo '<p>Пост не найден</p>';
-    }
-    $id++;
+function getCountPosts(PDO $connection, string $database): int
+{
+    $query = "SELECT COUNT(*) FROM $database";
+    $statement = $connection->query($query);
+    $count = $statement->fetch(PDO::FETCH_NUM);
+    return $count[0];
 }

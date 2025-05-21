@@ -20,3 +20,9 @@ CREATE TABLE
         created_by_user_id INT NOT NULL,
         likes INTEGER
     );
+
+CREATE TABLE
+    images(
+        post_id INT,
+        image VARCHAR(255)
+    );

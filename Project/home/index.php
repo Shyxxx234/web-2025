@@ -1,12 +1,14 @@
 <?php
 include("home.html");
+include("../database.php");
+
 const FILENAME_POST = '../json/posts.json';
 const FILENAME_USER = '../json/users.json';
 
 $jsonDataPost = json_decode(file_get_contents(FILENAME_POST), true);
 $jsonDataUser = json_decode(file_get_contents(FILENAME_USER), true);
 
-$userId = isset($_GET['id']) ? $_GET['id'] : null;
+
 
 function getInfo($jsonUser, $jsonPost, $id)
 {
@@ -27,7 +29,15 @@ function getInfo($jsonUser, $jsonPost, $id)
         }
     }
     ;
-    return [$avatar, $name, $image, $content, $createdAt, $likes, $createdBy];
+    return [
+        'avatar' => $avatar,
+        'name' => $name,
+        'image' => $image,
+        'content' => $content,
+        'created_at' => $createdAt,
+        'likes' => $likes,
+        'created_by_user_id' => $createdBy
+    ];
 }
 
 function pluralize($number, $one, $few, $many)
@@ -81,18 +91,44 @@ function timeAgo($timestamp)
     $diffInYears = floor($diffInDays / 365);
     return pluralize($diffInYears, 'год', 'года', 'лет') . " назад";
 }
-
+/*
 if (isset($jsonDataUser) && $jsonDataUser) {
     foreach ($jsonDataPost as $post) {
         if ($userId && $post['created_by_user_id'] != $userId) continue;
         $info = getInfo($jsonDataUser, $jsonDataPost, $post['id']);
-        $avatar = "../images/avatars/" . $info[0];
-        $postPhoto = "../images/" . $info[2];
-        $time = timeAgo($info[4]);
+        $avatar = "../images/avatars/" . $info['avatar'];
+        $name = $info['name'];
+        $likes = $info['likes'];
+        $content = $info['content'];
+        $postPhoto = "../images/" . $info['image'];
+        $time = timeAgo($info['created_at']);
         include("../templates/post.php");
     }
     echo "</div>";
     echo "</div>";
     echo "</div>";
+} */
+$userId = isset($_GET['id']) ? $_GET['id'] : null;
+$count = getCountPosts($connection, 'post');
+for ($id = 1; $id <= $count; $id++) {
+    $post = findPostInDatabasePost($connection, $id);
+    $images = findPhoto($connection, $id);
+    $user = findPostInDatabaseUser($connection, $post['created_by_user_id']);
+    if ($post) {
+        if ($userId && $post['created_by_user_id'] != $userId)
+            continue;
+        $avatar = "../images/avatars/" . $user['avatar'];
+        $name = $user['name'];
+        $likes = $post['likes'];
+        $content = $post['content'];
+        $time = timeAgo(strtotime($post['created_at']));
+        include("../templates/post.php");
+        if ($id == $count) {
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+        }
+    }
 }
+
 ?>

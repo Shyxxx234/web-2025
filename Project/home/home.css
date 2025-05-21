@@ -76,6 +76,7 @@
 
 .post__photo {
     display: block;
+    position: absolute;
     width: 474px;
     height: 474px;
     margin-bottom: 16px;
@@ -90,6 +91,7 @@
 
 .post__reactions {
     margin-bottom: 16px;
+    margin-top: 490px;
     border-radius: 8px;
     padding: 6px 12px;
     background-color: rgba(34, 34, 34, 0.05);
