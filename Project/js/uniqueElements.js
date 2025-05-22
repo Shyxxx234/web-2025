@@ -1,6 +1,6 @@
 function uniqueElements(arr) {
     let result = {}
-    for (let item of arr) {
+    for (item of arr) {
         const key = String(item);
         if (key in result) {
             result[key] += 1

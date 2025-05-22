@@ -2,9 +2,9 @@ const vowels = ['у', 'е', 'ы', 'а', 'о', 'я', 'и', 'ю', 'ё', 'э', 'У'
 
 function countVowels(str) {
     let foundVowels = []
-    for (elt of str) {
-        if (vowels.includes(elt)) {
-            foundVowels.push(elt)
+    for (element of str) {
+        if (vowels.includes(element)) {
+            foundVowels.push(element)
         }
     }
     const count = foundVowels.length
