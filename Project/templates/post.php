@@ -7,13 +7,21 @@ echo <<<HTML
         <img class="user-info__edit-icon" src="../images/pencil.png" alt="Иконка для редактирования">
     </div>
 HTML;
-$counter = 0;
+echo "<div class='post__images'>";
 foreach ($images as $image) {
-    $counter--;
     $path = "../images/" . $image;
-    echo "<img class='post__photo' src='{$path}' alt='Фото поста' style='z-index: {$counter}'>";
+    echo "<img class='post__photo' src='{$path}' alt='Фото поста'>";
 }
-;
+$quantityImages = count($images);
+if ($quantityImages > 1) {
+    $html = <<<HTML
+        <div class = "post__indicator">1/{$quantityImages}</div>
+        <img class = "post__slider post__slider--left" src="../images/slider_button.png">
+        <img class = "post__slider post__slider--right" src="../images/slider_button.png"> 
+    HTML;
+    echo $html;
+};
+echo "</div>";
 echo <<<HTML
     <div class='post__reactions'>
         <img src='../images/like.png' alt='Реакции'>

@@ -80,6 +80,7 @@
     width: 474px;
     height: 474px;
     margin-bottom: 16px;
+    visibility: hidden;
 }
 
 .user-info {
@@ -129,3 +130,47 @@
 }
 
 
+.post__indicator {
+    position: absolute;
+    width: 44px;
+    height: 24px;
+    font: 400 14px/1.2 "Golos UI", sans-serif;
+    color: #FFFFFF;
+    background-color: rgba(34, 34, 34, 0.5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 414px;
+}
+
+.post__slider {
+    position: absolute;
+    top: 221px;
+}
+
+.post__slider--right {
+    position: absolute;
+    right: 16px;
+}
+
+.post__slider--left {
+    left: 16px;
+    transform: scaleX(-1);
+}
+
+.post__images {
+    position: relative;
+}
+
+.post__photo--visible {
+    visibility: visible;
+}
+
+.post__photo--big {
+    position: absolute;
+    height: 636px;
+    width: 636px;
+    background-color: #808080;
+}
