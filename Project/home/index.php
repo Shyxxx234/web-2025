@@ -123,12 +123,13 @@ for ($id = 1; $id <= $count; $id++) {
         $content = $post['content'];
         $time = timeAgo(strtotime($post['created_at']));
         include("../templates/post.php");
-        if ($id == $count) {
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-        }
     }
 }
+echo <<<HTML
+            <div class="page__modal-window"></div>
+        HTML;
+echo "</div>";
+echo "</div>";
+echo "</div>";
 
 ?>

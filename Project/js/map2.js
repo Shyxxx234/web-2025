@@ -6,5 +6,5 @@ function mapObject(obj, callback) {
     return newMap
 }
 
-const nums = { a: 1, b: 2, c: 3 };
+const nums = { a: 1, b: 2, c: 3 }
 console.log(mapObject(nums, x => x ** 2)) 

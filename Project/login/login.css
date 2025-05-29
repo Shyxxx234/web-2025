@@ -22,6 +22,7 @@
 .login {
     max-width: 343px;
     display: block;
+    position: relative;
 }
 
 .login__field {
@@ -104,3 +105,9 @@
     height: 608px;
     margin-right: 106.92px;
 }   
+
+.login__toggle-icon {
+    position: absolute;
+    top: 54%;
+    right: 6%;    
+}

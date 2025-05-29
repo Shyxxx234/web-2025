@@ -34,4 +34,4 @@ function isPrimeNumber(number) {
 const n = [1, 2.1, -3, "s", 5, 6, '7', 8, 9, 10]
 
 isPrimeNumber(n)
-isPrimeNumber({})
+isPrimeNumber(true)

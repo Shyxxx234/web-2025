@@ -4,4 +4,9 @@ const users = [
   { id: 3, name: "Charlie" }
 ];
 
+function getName(user) {
+  return user.name
+}
+
 console.log(users.map(user => user.name))
+console.log(users.map(getName))

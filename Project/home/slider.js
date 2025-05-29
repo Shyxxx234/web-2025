@@ -1,4 +1,6 @@
 const lengthImages = document.getElementsByClassName("post__images").length;
+const modalWindow = document.getElementsByClassName("page__modal-window")[0];
+
 for (i = 0; i < lengthImages; i++) {
     const sliderLeft = document.getElementsByClassName("post__slider--left")[i];
     const sliderRight = document.getElementsByClassName("post__slider--right")[i];
@@ -8,24 +10,35 @@ for (i = 0; i < lengthImages; i++) {
     let image = images.children[0];
     let counter = 1;
     let lastEventTime = 0;
-    let quantity = images.childElementCount - 3;
+    let quantity = images.childElementCount;
     image.classList.add("post__photo--visible");
 
-    image.addEventListener("click", () => {
-            image.classList.add("post__photo--big");
-            //image.classList.remove("post__photo--big");
-        });
-
+    images.addEventListener("click", () => {
+        cloneImage = image.cloneNode(true);
+        modalWindow.appendChild(cloneImage);
+        if (sliderLeft && sliderRight) {
+            cloneIndicator = indicator.cloneNode(true);
+            cloneSliderLeft = sliderLeft.cloneNode(true);
+            cloneSliderRight = sliderRight.cloneNode(true);
+            modalWindow.appendChild(cloneSliderLeft);
+            modalWindow.appendChild(cloneSliderRight);
+            cloneSliderLeft.classList.add("modal_window__slider--left");
+            cloneSliderRight.classList.add("modal_window__slider--right");
+            modalWindow.appendChild(cloneIndicator);
+            cloneIndicator.classList.add("modal_window__indicator");
+        };
+        modalWindow.classList.add("page__modal-window--active");
+        cloneImage.classList.add("post__photo--big");
+    });
+    modalWindow.addEventListener("click", () => {
+        modalWindow.replaceChildren();
+        modalWindow.classList.remove("page__modal-window--active");
+        cloneImage.classList.remove("post__photo--big");
+        modalWindow.removeEventListener("click", () => { });
+    });
 
     if (sliderLeft && sliderRight) {
-        sliderLeft.addEventListener("click", (e) => {
-            const now = Date.now();
-            if (now - lastEventTime < 300) {
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-            lastEventTime = now;
+        sliderLeft.addEventListener("click", () => {
             image.classList.remove("post__photo--visible");
             if (counter > 1) {
                 counter--;
@@ -37,15 +50,7 @@ for (i = 0; i < lengthImages; i++) {
             indicator.textContent = `${counter}/${quantity}`;
             image.classList.add("post__photo--visible");
         });
-
-        sliderRight.addEventListener("click", (e) => {
-            const now = Date.now();
-            if (now - lastEventTime < 300) {
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-            lastEventTime = now;
+        sliderRight.addEventListener("click", () => {
             image.classList.remove("post__photo--visible");
             if (counter < quantity) {
                 counter++;

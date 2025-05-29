@@ -7,11 +7,13 @@ echo <<<HTML
         <img class="user-info__edit-icon" src="../images/pencil.png" alt="Иконка для редактирования">
     </div>
 HTML;
+echo "<div class='post__contains'>";
 echo "<div class='post__images'>";
 foreach ($images as $image) {
     $path = "../images/" . $image;
     echo "<img class='post__photo' src='{$path}' alt='Фото поста'>";
 }
+echo "</div>";
 $quantityImages = count($images);
 if ($quantityImages > 1) {
     $html = <<<HTML
