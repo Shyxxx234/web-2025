@@ -41,7 +41,7 @@ function findPostInDatabasePost(PDO $connection, int $id): ?array
     return $row ?: null;
 }
 
-function findPostInDatabaseUser(PDO $connection, int $id): ?array
+function findUserInDatabaseUser(PDO $connection, int $id): ?array
 {
     $query = <<<SQL
         SELECT

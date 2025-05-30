@@ -8,13 +8,13 @@ CREATE TABLE
         name VARCHAR(100),
         avatar VARCHAR(255),
         description TEXT,
-        posts INTEGER
+        email VARCHAR(50),
+        password VARCHAR(50)
     );
 
 CREATE TABLE
     post (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        image VARCHAR(255),
         content TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         created_by_user_id INT NOT NULL,

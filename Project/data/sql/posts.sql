@@ -3,14 +3,18 @@ INSERT INTO
         name,
         avatar,
         description,
-        posts
+        posts,
+        email,
+        password
     )
 VALUES
     (
         'Илон Маск',
         'elon_musk.jpg',
         'Предприниматель, инженер, изобретатель. Основатель SpaceX, Tesla, Neuralink и The Boring Company.',
-        1
+        1,
+        "elon@yandex.ru",
+        "elon"
     );
 
 INSERT INTO
@@ -48,7 +52,9 @@ INSERT INTO
         name,
         avatar,
         description,
-        posts
+        posts,
+        email,
+        password
     )
 VALUES
     (
@@ -58,7 +64,8 @@ VALUES
         'Ваня Денисов',
         'avatar.png',
         'Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!',
-        'user'
+        "denisov@gmail.com",
+        "123"
     );
 
 INSERT INTO post (

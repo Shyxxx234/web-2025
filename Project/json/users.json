@@ -4,13 +4,15 @@
         "name": "Ваня Денисов",
         "avatar": "vanya_denisov.png",
         "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
-        "posts": 1
+        "email": "denisov@gmail.com",
+        "password": "123"
     },
     {
         "id": "2",
         "name": "Илон Маск",
         "avatar": "elon_musk.jpg",
         "description": "Предприниматель, инженер, изобретатель. Основатель SpaceX, Tesla, Neuralink и The Boring Company.",
-        "posts": 1
+        "email": "elon@yandex.ru",
+        "password": "elon"
     }
 ]

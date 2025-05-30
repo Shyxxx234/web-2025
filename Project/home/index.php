@@ -32,7 +32,7 @@ function getInfo($jsonUser, $jsonPost, $id)
     return [
         'avatar' => $avatar,
         'name' => $name,
-        'image' => $image,
+        'images' => $image,
         'content' => $content,
         'created_at' => $createdAt,
         'likes' => $likes,
@@ -59,7 +59,7 @@ function pluralize($number, $one, $few, $many)
 
 function timeAgo($timestamp)
 {
-    $currentTime = time();
+    $currentTime = (new DateTime('now', new DateTimeZone('UTC')))->getTimestamp();
     $diffInSeconds = $currentTime - $timestamp;
 
     if ($diffInSeconds < 60) {
@@ -91,7 +91,8 @@ function timeAgo($timestamp)
     $diffInYears = floor($diffInDays / 365);
     return pluralize($diffInYears, 'год', 'года', 'лет') . " назад";
 }
-/*
+$userId = isset($_GET['id']) ? $_GET['id'] : null;
+
 if (isset($jsonDataUser) && $jsonDataUser) {
     foreach ($jsonDataPost as $post) {
         if ($userId && $post['created_by_user_id'] != $userId) continue;
@@ -100,20 +101,20 @@ if (isset($jsonDataUser) && $jsonDataUser) {
         $name = $info['name'];
         $likes = $info['likes'];
         $content = $info['content'];
-        $postPhoto = "../images/" . $info['image'];
+        $images = $info['images'];
         $time = timeAgo($info['created_at']);
         include("../templates/post.php");
     }
     echo "</div>";
     echo "</div>";
     echo "</div>";
-} */
-$userId = isset($_GET['id']) ? $_GET['id'] : null;
+} 
+/*
 $count = getCountPosts($connection, 'post');
 for ($id = 1; $id <= $count; $id++) {
     $post = findPostInDatabasePost($connection, $id);
     $images = findPhoto($connection, $id);
-    $user = findPostInDatabaseUser($connection, $post['created_by_user_id']);
+    $user = findUserInDatabaseUser($connection, $post['created_by_user_id']);
     if ($post) {
         if ($userId && $post['created_by_user_id'] != $userId)
             continue;
@@ -124,7 +125,7 @@ for ($id = 1; $id <= $count; $id++) {
         $time = timeAgo(strtotime($post['created_at']));
         include("../templates/post.php");
     }
-}
+} */
 echo <<<HTML
             <div class="page__modal-window"></div>
         HTML;

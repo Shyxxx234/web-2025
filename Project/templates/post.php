@@ -6,9 +6,9 @@ echo <<<HTML
         <span class="user-info__name">$name</span>
         <img class="user-info__edit-icon" src="../images/pencil.png" alt="Иконка для редактирования">
     </div>
+    <div class='post__contains'>
+        <div class='post__images'>
 HTML;
-echo "<div class='post__contains'>";
-echo "<div class='post__images'>";
 foreach ($images as $image) {
     $path = "../images/" . $image;
     echo "<img class='post__photo' src='{$path}' alt='Фото поста'>";
@@ -23,8 +23,8 @@ if ($quantityImages > 1) {
     HTML;
     echo $html;
 };
-echo "</div>";
 echo <<<HTML
+    </div>
     <div class='post__reactions'>
         <img src='../images/like.png' alt='Реакции'>
         <span class='post__likes'>$likes</span>

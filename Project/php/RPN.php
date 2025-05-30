@@ -24,6 +24,14 @@ function evaluateRPN($expression)
                     case '*':
                         array_push($stack, $a * $b);
                         break;
+                    case '/':
+                        if ($b <> 0) {
+                            array_push($stack, $a / $b);
+                        } else {
+                            return "division by 0";
+                        }
+
+                        break;
                     default:
                         return "Введен неизвестный оператор. Доступные операторы: +, -, *";
                 }
@@ -33,7 +41,9 @@ function evaluateRPN($expression)
     return array_pop($stack);
 }
 
-if (isset($_POST["expression"])) {
+if (isset($_POST['expression']) && (trim($_POST["expression"]) <> '')) {
     echo evaluateRPN($_POST['expression']);
+} else {
+    echo "Введите арифметическое выражение";
 }
 ?>

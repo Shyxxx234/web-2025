@@ -1,7 +1,7 @@
 <?php
-function ValiadteId($infoAboutUser): bool
+function ValidateId($infoAboutUser): bool
 {
-    if (!$infoAboutUser) {
+    if ((!$infoAboutUser) || ($infoAboutUser == 'id=')) {
         echo "<div style='
         position: fixed;
         top: 40%;

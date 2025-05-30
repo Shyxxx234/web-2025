@@ -75,12 +75,11 @@
 }   
 
 .post__photo {
-    display: block;
     position: absolute;
     width: 474px;
     height: 474px;
     margin-bottom: 16px;
-    display: none;
+    display: none; 
 }
 
 .user-info {
@@ -115,7 +114,7 @@
 
 .page {
     display: inline-flex;
-    flex-direction: row;
+    max-width: 100%;
 }
 
 .post-place {
@@ -147,6 +146,7 @@
 .post__slider {
     position: absolute;
     top: 221px;
+    cursor: pointer;
 }
 
 .post__slider--right {
@@ -168,10 +168,9 @@
 }
 
 .post__photo--big {
-    position: absolute;
+    position: relative;
     height: 636px;
     width: 636px;
-    background-color: #808080;
 }
 
 .page__modal-window {
@@ -193,17 +192,9 @@
     background-color: transparent;
     position: absolute;
     right: 48%;
-    top: 85%;
+    top: 100%;
 }
 
-.modal_window__slider--left {
-    position: relative;
-    top: auto;   
-    left: -17em;
-}
-
-.modal_window__slider--right {
-    position: relative;
-    left: 17em;
-    top: auto;
+.modal_window__slider {
+    top: 50%;
 }
