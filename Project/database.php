@@ -10,31 +10,31 @@ function connectDatabase(): PDO
 
 function savePostToDatabase(PDO $connection, array $postParams, array $images): int
 {
-    if(is_numeric($postParams['created_by_user_id']) && ($postParams['content'])) {
-
-    }
-    $query = <<<SQL
+    if (is_numeric($postParams['created_by_user_id']) && count($postParams['content']) < 2000) {
+        $query = <<<SQL
         INSERT INTO post (content, created_by_user_id, likes)
         VALUES (:content, :created_by_user_id, :likes)
         SQL;
-    $statement = $connection->prepare(($query));
-    $statement->execute([
-        ':content' => $postParams['content'],
-        ':created_by_user_id' => $postParams['created_by_user_id'],
-        ':likes' => $postParams['likes'] ?? 0
-    ]);
-    $id = $connection->lastInsertId();
-    foreach($images as $image) {
-        $query = <<<SQL
+        $statement = $connection->prepare(($query));
+        $statement->execute([
+            ':content' => $postParams['content'],
+            ':created_by_user_id' => $postParams['created_by_user_id'],
+            ':likes' => $postParams['likes'] ?? 0
+        ]);
+        $id = $connection->lastInsertId();
+        foreach ($images as $image) {
+            $query = <<<SQL
             INSERT INTO image (post_id, image)
             VALUES (:post_id, :image);
         SQL;
-        $statement = $connection->prepare($query);
-        $statement->execute([
-            ':post_id' => $id,
-            ':image' => $image
-        ]);
+            $statement = $connection->prepare($query);
+            $statement->execute([
+                ':post_id' => $id,
+                ':image' => $image
+            ]);
+        }
     }
+
     return (int) $connection->lastInsertId();
 }
 
