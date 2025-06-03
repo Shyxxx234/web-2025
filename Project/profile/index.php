@@ -20,14 +20,14 @@ function getInfo($jsonUser, $jsonPost, $userId, $postId = 1): array|bool
         if ($user['id'] == $userId) {
             $founded = TRUE;
             $avatar = $user['avatar'];
-            $name = $user['name'];
+            $name = $user['first_name'] . " " . $user['last_name'];
             $description = $user['description'];
         }
     }
     ;
     foreach ($jsonPost as $post) {
         if (($post['created_by_user_id'] == $userId) && ($post['id'] == $postId)) {
-            $images = $post['image'];
+            $images = $post['images'];
             $createdBy = $post['created_by_user_id'];
         }
     }

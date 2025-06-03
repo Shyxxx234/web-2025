@@ -93,26 +93,28 @@ for (const post of posts) {
             if (modalRight) modalRight.classList.add("modal_window__slider");
 
             modalWindow.classList.add("page__modal-window--active");
+            
+            document.addEventListener("keydown", function (e) {
+                const modalWindow = document.querySelector(".page__modal-window");
+                if (e.key === "Escape") {
+                    modalWindow.classList.remove("page__modal-window--active");
+                    if (currentModalSlider) {
+                        currentModalSlider.destroy();
+                        currentModalSlider = null;
+                    }
+                }
+            });
+            document.addEventListener("click", function (e) {
+                const modalWindow = document.querySelector(".page__modal-window");
+                if (e.target === modalWindow) {
+                    modalWindow.classList.remove("page__modal-window--active");
+                    if (currentModalSlider) {
+                        currentModalSlider.destroy();
+                        currentModalSlider = null;
+                    }
+                }
+            });
         });
     }
 }
-document.addEventListener("keydown", function (e) {
-    const modalWindow = document.querySelector(".page__modal-window");
-    if (e.key === "Escape") {
-        modalWindow.classList.remove("page__modal-window--active");
-        if (currentModalSlider) {
-            currentModalSlider.destroy();
-            currentModalSlider = null;
-        }
-    }
-});
-document.addEventListener("click", function (e) {
-    const modalWindow = document.querySelector(".page__modal-window");
-    if (e.target === modalWindow) {
-        modalWindow.classList.remove("page__modal-window--active");
-        if (currentModalSlider) {
-            currentModalSlider.destroy();
-            currentModalSlider = null;
-        }
-    }
-});
+

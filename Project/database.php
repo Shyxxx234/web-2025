@@ -8,23 +8,33 @@ function connectDatabase(): PDO
     return new PDO($dsn, $user, $password);
 }
 
-function savePostToDatabase(PDO $connection, array $postParams): int
+function savePostToDatabase(PDO $connection, array $postParams, array $images): int
 {
-    $content = $connection->quote($postParams['content']);
-    $image = $connection->quote($postParams['image']);
-    $created_by_user_id = $connection->quote($postParams['created_by_user_id']);
-    $likes = $connection->quote($postParams['likes']);
+    if(is_numeric($postParams['created_by_user_id']) && ($postParams['content'])) {
+
+    }
     $query = <<<SQL
-        INSERT INTO post (image, content, created_by_user_id, likes)
-        VALUES (:image, :content, :created_by_user_id, :likes);
+        INSERT INTO post (content, created_by_user_id, likes)
+        VALUES (:content, :created_by_user_id, :likes)
         SQL;
     $statement = $connection->prepare(($query));
     $statement->execute([
-        ':image' => $postParams['image'],
         ':content' => $postParams['content'],
-        ':creared_by_user_id' => $postParams['created_by_user_id'],
+        ':created_by_user_id' => $postParams['created_by_user_id'],
         ':likes' => $postParams['likes'] ?? 0
     ]);
+    $id = $connection->lastInsertId();
+    foreach($images as $image) {
+        $query = <<<SQL
+            INSERT INTO image (post_id, image)
+            VALUES (:post_id, :image);
+        SQL;
+        $statement = $connection->prepare($query);
+        $statement->execute([
+            ':post_id' => $id,
+            ':image' => $image
+        ]);
+    }
     return (int) $connection->lastInsertId();
 }
 

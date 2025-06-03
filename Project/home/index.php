@@ -14,7 +14,7 @@ function getInfo($jsonUser, $jsonPost, $id)
 {
     foreach ($jsonPost as $post) {
         if ($post['id'] == $id) {
-            $image = $post['image'];
+            $images = $post['images'];
             $content = $post['content'];
             $createdBy = $post['created_by_user_id'];
             $createdAt = $post['created_at'];
@@ -25,14 +25,14 @@ function getInfo($jsonUser, $jsonPost, $id)
     foreach ($jsonUser as $user) {
         if ($user['id'] == $createdBy) {
             $avatar = $user['avatar'];
-            $name = $user['name'];
+            $name = $user['first_name'] . " " . $user['last_name'];
         }
     }
     ;
     return [
         'avatar' => $avatar,
         'name' => $name,
-        'images' => $image,
+        'images' => $images,
         'content' => $content,
         'created_at' => $createdAt,
         'likes' => $likes,
@@ -59,8 +59,11 @@ function pluralize($number, $one, $few, $many)
 
 function timeAgo($timestamp)
 {
-    $currentTime = (new DateTime('now', new DateTimeZone('UTC')))->getTimestamp();
+    $currentTime = time();
     $diffInSeconds = $currentTime - $timestamp;
+    if ($diffInSeconds < 0) {
+        return "";
+    }
 
     if ($diffInSeconds < 60) {
         return "только что";
@@ -95,7 +98,8 @@ $userId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (isset($jsonDataUser) && $jsonDataUser) {
     foreach ($jsonDataPost as $post) {
-        if ($userId && $post['created_by_user_id'] != $userId) continue;
+        if ($userId && $post['created_by_user_id'] != $userId)
+            continue;
         $info = getInfo($jsonDataUser, $jsonDataPost, $post['id']);
         $avatar = "../images/avatars/" . $info['avatar'];
         $name = $info['name'];
@@ -108,7 +112,7 @@ if (isset($jsonDataUser) && $jsonDataUser) {
     echo "</div>";
     echo "</div>";
     echo "</div>";
-} 
+}
 /*
 $count = getCountPosts($connection, 'post');
 for ($id = 1; $id <= $count; $id++) {
@@ -128,9 +132,8 @@ for ($id = 1; $id <= $count; $id++) {
 } */
 echo <<<HTML
             <div class="page__modal-window"></div>
+            </div>
+            </div>
+            </div>
         HTML;
-echo "</div>";
-echo "</div>";
-echo "</div>";
-
 ?>

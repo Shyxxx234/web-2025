@@ -7,8 +7,8 @@
 .user-info__avatar {
     border-radius: 6px;
     max-width: 100%;
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
 }
 
 .user-info__name {
@@ -124,7 +124,9 @@
 
 .user-info__edit-icon {
     display: block;
-    margin-left: auto;
+    margin: auto 0 auto auto;
+    width: 24px;
+    height: 24px;
 }
 
 
@@ -184,10 +186,12 @@
     justify-content: center;
     align-items: center;
 }
+
 .page__modal-window--active {
     background-color: rgba(34, 34, 34, 0.8);
     visibility: visible;
 }
+
 .modal_window__indicator {
     background-color: transparent;
     position: absolute;

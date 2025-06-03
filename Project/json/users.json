@@ -1,7 +1,8 @@
 [
     {
         "id": "1",
-        "name": "Ваня Денисов",
+        "first_name": "Ваня",
+        "last_name": "Денисов",
         "avatar": "vanya_denisov.png",
         "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
         "email": "denisov@gmail.com",
@@ -9,7 +10,8 @@
     },
     {
         "id": "2",
-        "name": "Илон Маск",
+        "first_name": "Илон",
+        "last_name": "Маск",
         "avatar": "elon_musk.jpg",
         "description": "Предприниматель, инженер, изобретатель. Основатель SpaceX, Tesla, Neuralink и The Boring Company.",
         "email": "elon@yandex.ru",
