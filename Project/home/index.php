@@ -95,7 +95,7 @@ function timeAgo($timestamp)
     return pluralize($diffInYears, 'год', 'года', 'лет') . " назад";
 }
 $userId = isset($_GET['id']) ? $_GET['id'] : null;
-
+/*
 if (isset($jsonDataUser) && $jsonDataUser) {
     foreach ($jsonDataPost as $post) {
         if ($userId && $post['created_by_user_id'] != $userId)
@@ -109,31 +109,26 @@ if (isset($jsonDataUser) && $jsonDataUser) {
         $time = timeAgo($info['created_at']);
         include("../templates/post.php");
     }
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-}
-/*
-$count = getCountPosts($connection, 'post');
-for ($id = 1; $id <= $count; $id++) {
+}*/
+
+$idArray = getAllPostsId($connection);
+foreach ($idArray as $id) {   
     $post = findPostInDatabasePost($connection, $id);
     $images = findPhoto($connection, $id);
     $user = findUserInDatabaseUser($connection, $post['created_by_user_id']);
     if ($post) {
-        if ($userId && $post['created_by_user_id'] != $userId)
+        if ($userId && $post['created_by_user_id'] != $userId){
             continue;
+        }
         $avatar = "../images/avatars/" . $user['avatar'];
-        $name = $user['name'];
+        $name = $user['first_name'] . " " . $user['last_name'];
         $likes = $post['likes'];
         $content = $post['content'];
         $time = timeAgo(strtotime($post['created_at']));
         include("../templates/post.php");
     }
-} */
+} 
 echo <<<HTML
             <div class="page__modal-window"></div>
-            </div>
-            </div>
-            </div>
-        HTML;
+    HTML;
 ?>

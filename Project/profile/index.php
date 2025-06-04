@@ -46,6 +46,7 @@ function getInfo($jsonUser, $jsonPost, $userId, $postId = 1): array|bool
     }
 
 }
+
 $images = [];
 $name = '';
 $userAvatar = '';
@@ -61,7 +62,6 @@ for ($i = 1; $i <= count($jsonDataPost); $i++) {
         }
     }
 }
-;
 if ($name) {
     $quantityImages = count($images);
     include("profile.html");
@@ -73,51 +73,29 @@ if ($name) {
 }
 
 /*
-$postCounter = count($jsonDataPost);
-for ($i = 0; $i < $postCounter; $i++) {
-    if (isset($jsonDataUser)) {
-        $infoAboutUser = getInfo($jsonDataUser, $jsonDataPost, $userId, $i);
-        if ((ValiadteId($infoAboutUser)) && ($infoAboutUser['createdBy'] == $userId)) {
-            
-            $quantityImages = count($infoAboutUser['images']);
-            include("profile.html");
-            $avatar = "../images/avatars/" . $infoAboutUser['avatar'];
-            include("../templates/aboutuser.php");
-            $postId = 0;
-            foreach ($jsonDataPost as $post) {
-                $postId += 1;
-                $info = getInfo($jsonDataUser, $jsonDataPost, $userId, $postId);
-                if ($info['createdBy'] == $userId) {
-                    foreach ($info['images'] as $photo) {
-                        $postPhoto = "../images/" . $photo;
-                        echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
-                    }
-                }
-            }
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
+$infoAboutUser = findUserInDatabaseUser($connection, $userId);
+if (ValidateId($infoAboutUser)) {
+    include("profile.html");
+    $userAvatar = $infoAboutUser['avatar'];
+    $name = $infoAboutUser['first_name'] . " " . $infoAboutUser['last_name'];
+    $description = $infoAboutUser['description'];
+    $count = getCountPosts($connection, 'post');
+    $images = [];
+    for ($id = 1; $id <= $count; $id++) {
+        $infoAboutPost = findPostInDatabasePost($connection, $id);
+        if ($infoAboutPost['created_by_user_id'] == $userId) {
+            $images = array_merge($images, findPhoto($connection, $id));
         }
     }
-}
-    */
-
-
-/*
-$infoAboutUser = findUserInDatabaseUser($connection, $userId);
-if (ValiadteId($infoAboutUser)) {
-    include("profile.html");
-    $avatar = "../images/avatars/" . $infoAboutUser['avatar'];
+    $quantityImages = count($images);
     include("../templates/aboutuser.php");
-    $images = findPhoto($connection, $userId);
-    $counter = 0;
-    for($i = 0; $i < count($images); $i++) {
+
+    for ($i = 0; $i < $quantityImages; $i++) {
         $postPhoto = "../images/" . $images[$i];
-        $counter++;
         echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
     }
     echo "</div>";
     echo "</div>";
     echo "</div>";
-} */
+}*/
 ?>

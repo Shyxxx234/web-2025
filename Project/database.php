@@ -10,15 +10,16 @@ function connectDatabase(): PDO
 
 function savePostToDatabase(PDO $connection, array $postParams, array $images): int
 {
-    if (is_numeric($postParams['created_by_user_id']) && count($postParams['content']) < 2000) {
+    if (is_numeric($postParams['created_by_user_id']) && strlen($postParams['content']) < 2000) {
         $query = <<<SQL
-        INSERT INTO post (content, created_by_user_id, likes)
-        VALUES (:content, :created_by_user_id, :likes)
+            INSERT INTO post (content, created_by_user_id, created_at, likes)
+            VALUES (:content, :created_by_user_id, :created_at, :likes)
         SQL;
-        $statement = $connection->prepare(($query));
+        $statement = $connection->prepare($query);
         $statement->execute([
             ':content' => $postParams['content'],
             ':created_by_user_id' => $postParams['created_by_user_id'],
+            ':created_at' => date('Y-m-d H:i:s'),
             ':likes' => $postParams['likes'] ?? 0
         ]);
         $id = $connection->lastInsertId();
@@ -38,11 +39,25 @@ function savePostToDatabase(PDO $connection, array $postParams, array $images): 
     return (int) $connection->lastInsertId();
 }
 
+function getAllPostsId(PDO $connection): array 
+{
+    try {
+        $sql = "SELECT id FROM post";
+        $sql .= " ORDER BY created_at DESC";
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+    } catch (PDOException $e) {
+        error_log("Ошибка при получении списка постов: " . $e->getMessage());
+        return [];
+    }
+}
+
 function findPostInDatabasePost(PDO $connection, int $id): ?array
 {
     $query = <<<SQL
         SELECT
-          id, image, content, created_at, created_by_user_id, likes
+          id, content, created_at, created_by_user_id, likes
         FROM post
         WHERE id = $id
         SQL;
@@ -55,7 +70,7 @@ function findUserInDatabaseUser(PDO $connection, int $id): ?array
 {
     $query = <<<SQL
         SELECT
-          id, name, avatar, description, posts
+          id, first_name, last_name, avatar, description
         FROM user
         WHERE id = $id
         SQL;
@@ -67,7 +82,7 @@ function findPhoto(PDO $connection, int $post_id): ?array
 {
     $query = <<<SQL
         SELECT image 
-        FROM images
+        FROM image
         WHERE post_id = $post_id
         SQL;
     $statement = $connection->query($query);

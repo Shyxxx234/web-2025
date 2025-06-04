@@ -71,12 +71,14 @@ for (const post of posts) {
 
         imagesContainer.addEventListener("click", function () {
             const clone = post.querySelector(".post__contains").cloneNode(true);
+            const exitButton = document.createElement("img");
+            exitButton.src = "../images/button.png";
+            exitButton.alt = "Выход";
+            exitButton.classList.add("modal-window__exit-button");
             modalWindow.innerHTML = '';
+            clone.appendChild(exitButton);
             modalWindow.appendChild(clone);
 
-            if (currentModalSlider) {
-                currentModalSlider.destroy();
-            }
 
             currentModalSlider = createSlider(clone, true);
 
@@ -93,7 +95,7 @@ for (const post of posts) {
             if (modalRight) modalRight.classList.add("modal_window__slider");
 
             modalWindow.classList.add("page__modal-window--active");
-            
+
             document.addEventListener("keydown", function (e) {
                 const modalWindow = document.querySelector(".page__modal-window");
                 if (e.key === "Escape") {
@@ -106,7 +108,7 @@ for (const post of posts) {
             });
             document.addEventListener("click", function (e) {
                 const modalWindow = document.querySelector(".page__modal-window");
-                if (e.target === modalWindow) {
+                if (e.target === modalWindow || e.target ===exitButton) {
                     modalWindow.classList.remove("page__modal-window--active");
                     if (currentModalSlider) {
                         currentModalSlider.destroy();

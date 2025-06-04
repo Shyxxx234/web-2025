@@ -5,7 +5,8 @@ USE blog;
 CREATE TABLE
     user (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100),
+        fisrt_name VARCHAR(100),
+        last_name VARCHAR(100),
         avatar VARCHAR(255),
         description TEXT,
         email VARCHAR(50),

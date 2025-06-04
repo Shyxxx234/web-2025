@@ -1,9 +1,9 @@
 <?php
 echo <<<HTML
     <div class="post">
-    <div class="post__user user-info">
+    <div class="post__user user-info" >
         <img class="user-info__avatar" src="../{$avatar}" alt="Avatar">
-        <span class="user-info__name">$name</span>
+        <span class="user-info__name" onclick="window.location.href = '/profile/?id={$post['created_by_user_id']}';">$name</span>
         <img class="user-info__edit-icon" src="../images/pencil.png" alt="Иконка для редактирования">
     </div>
     <div class='post__contains'>
