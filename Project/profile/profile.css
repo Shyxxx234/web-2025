@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.menu__item--active::after {
+.menu__item_active::after {
     display: block;
     content: '';
     width: 4px;

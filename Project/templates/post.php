@@ -18,8 +18,8 @@ $quantityImages = count($images);
 if ($quantityImages > 1) {
     $html = <<<HTML
         <div class = "post__indicator">1/{$quantityImages}</div>
-        <img class = "post__slider post__slider--left" src="../images/slider_button.png">
-        <img class = "post__slider post__slider--right" src="../images/slider_button.png"> 
+        <img class = "post__slider post__slider_left" src="../images/slider_button.png">
+        <img class = "post__slider post__slider_right" src="../images/slider_button.png"> 
     HTML;
     echo $html;
 };

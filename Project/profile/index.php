@@ -46,7 +46,7 @@ function getInfo($jsonUser, $jsonPost, $userId, $postId = 1): array|bool
     }
 
 }
-
+/*
 $images = [];
 $name = '';
 $userAvatar = '';
@@ -70,9 +70,9 @@ if ($name) {
         $postPhoto = "../images/" . $image;
         echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
     }
-}
+}*/
 
-/*
+$idArray = getAllPostsId($connection);
 $infoAboutUser = findUserInDatabaseUser($connection, $userId);
 if (ValidateId($infoAboutUser)) {
     include("profile.html");
@@ -81,7 +81,7 @@ if (ValidateId($infoAboutUser)) {
     $description = $infoAboutUser['description'];
     $count = getCountPosts($connection, 'post');
     $images = [];
-    for ($id = 1; $id <= $count; $id++) {
+    foreach ($idArray as $id) {
         $infoAboutPost = findPostInDatabasePost($connection, $id);
         if ($infoAboutPost['created_by_user_id'] == $userId) {
             $images = array_merge($images, findPhoto($connection, $id));
@@ -97,5 +97,5 @@ if (ValidateId($infoAboutUser)) {
     echo "</div>";
     echo "</div>";
     echo "</div>";
-}*/
+}
 ?>
