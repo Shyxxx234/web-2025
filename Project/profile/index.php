@@ -94,8 +94,5 @@ if (ValidateId($infoAboutUser)) {
         $postPhoto = "../images/" . $images[$i];
         echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
     }
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
 }
 ?>
