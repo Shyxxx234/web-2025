@@ -10,7 +10,10 @@ function connectDatabase(): PDO
 
 function savePostToDatabase(PDO $connection, array $postParams, array $images): int
 {
-    if (is_numeric($postParams['created_by_user_id']) && strlen($postParams['content']) < 2000) {
+    $allUserId = getAllUsersId($connection);
+    var_dump($allUserId);
+    $condition = is_numeric($postParams['created_by_user_id']) && strlen($postParams['content']) < 2000;
+    if ($condition && in_array($postParams['created_by_user_id'], $allUserId)) {
         $query = <<<SQL
             INSERT INTO post (content, created_by_user_id, created_at, likes)
             VALUES (:content, :created_by_user_id, :created_at, :likes)
@@ -44,6 +47,18 @@ function getAllPostsId(PDO $connection): array
     try {
         $sql = "SELECT id FROM post";
         $sql .= " ORDER BY created_at DESC";
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+    } catch (PDOException $e) {
+        error_log("Ошибка при получении списка постов: " . $e->getMessage());
+        return [];
+    }
+}
+
+function getAllUsersId(PDO $connection):array {
+    try {
+        $sql = "SELECT id FROM user";
         $stmt = $connection->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);

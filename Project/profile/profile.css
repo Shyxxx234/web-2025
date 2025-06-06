@@ -97,9 +97,11 @@
     width: 80px;
     outline: auto;
     outline-color: rgba(34, 34, 34, 0.05);
+    padding-top: 40px;
 }
 
 .page {
     display: inline-flex;
     flex-direction: row;
+    width: 100%;
 }
