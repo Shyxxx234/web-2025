@@ -1,4 +1,4 @@
-function addSliderListener(container, modal) {
+function sliderListener(container, modal) {
     const images = container.querySelector(".post__images");
     if (!images || images.children.length == 0) return null;
 
@@ -61,7 +61,7 @@ function modalWindow(container, post) {
     const modalWindow = container.querySelector(".page__modal-window");
     const imagesContainer = post.querySelector(".post__images");
 
-    imagesContainer.addEventListener("click", function () {
+    imagesContainer.addEventListener("click", () => {
         const clone = post.querySelector(".post__contains").cloneNode(true);
         const exitButton = container.createElement("img");
         exitButton.src = "../images/button.png";
@@ -71,7 +71,7 @@ function modalWindow(container, post) {
         clone.appendChild(exitButton);
         modalWindow.appendChild(clone);
 
-        currentModalSlider = addSliderListener(clone, true);
+        currentModalSlider = sliderListener(clone, true);
 
         const modalImages = clone.querySelector(".post__images").children;
         for (let i = 0; i < modalImages.length; i++) {
@@ -96,6 +96,7 @@ function modalWindow(container, post) {
                     currentModalSlider = null;
                 }
             }
+            container.removeEventListener("click", () => {});
         });
         container.addEventListener("click", function (e) {
             const modalWindow = container.querySelector(".page__modal-window");
@@ -105,6 +106,7 @@ function modalWindow(container, post) {
                     currentModalSlider.destroy();
                     currentModalSlider = null;
                 }
+                container.removeEventListener("click");
             }
         });
     });
@@ -136,7 +138,7 @@ const sliders = [];
 let currentModalSlider = null;
 
 for (const post of posts) {
-    const slider = addSliderListener(post, false);
+    const slider = sliderListener(post, false);
     if (slider) {
         sliders.push(slider);
     }

@@ -9,7 +9,7 @@ include("../database.php");
 $jsonDataPost = json_decode(file_get_contents(FILENAME_POST), true);
 $jsonDataUser = json_decode(file_get_contents(FILENAME_USER), true);
 
-$userId = isset($_GET['id']) ? $_GET['id'] : 1;
+
 
 function getInfo($jsonUser, $jsonPost, $userId, $postId = 1): array|bool
 {
@@ -73,6 +73,8 @@ if ($name) {
 }*/
 
 $idArray = getAllPostsId($connection);
+$idUsers = getAllUsersId($connection); 
+$userId = isset($_GET['id']) && is_numeric($_GET['id']) ? $_GET['id'] : $idUsers[0];
 $infoAboutUser = findUserInDatabaseUser($connection, $userId);
 if (ValidateId($infoAboutUser)) {
     include("profile.html");
@@ -92,7 +94,7 @@ if (ValidateId($infoAboutUser)) {
 
     for ($i = 0; $i < $quantityImages; $i++) {
         $postPhoto = "../images/" . $images[$i];
-        echo "<img class='content__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
+        echo "<img class='post_place__image-post' src='../{$postPhoto}' alt='Фотография поста'>";
     }
 }
 ?>

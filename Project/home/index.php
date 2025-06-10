@@ -95,6 +95,11 @@ function timeAgo($timestamp)
     return pluralize($diffInYears, 'год', 'года', 'лет') . " назад";
 }
 $userId = isset($_GET['id']) ? $_GET['id'] : null;
+//if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+//    $userId = $_GET['id'];
+//} else {
+//    return error();
+//}
 /*
 if (isset($jsonDataUser) && $jsonDataUser) {
     foreach ($jsonDataPost as $post) {
@@ -110,6 +115,8 @@ if (isset($jsonDataUser) && $jsonDataUser) {
         include("../templates/post.php");
     }
 }*/
+
+
 
 $idArray = getAllPostsId($connection);
 foreach ($idArray as $id) {   

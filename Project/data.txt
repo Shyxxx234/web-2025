@@ -1,0 +1,6 @@
+bang
+go
+clever
+clever
+go
+hello world

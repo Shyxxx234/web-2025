@@ -13,7 +13,7 @@ function savePostToDatabase(PDO $connection, array $postParams, array $images): 
     $allUserId = getAllUsersId($connection);
     var_dump($allUserId);
     $condition = is_numeric($postParams['created_by_user_id']) && strlen($postParams['content']) < 2000;
-    if ($condition && in_array($postParams['created_by_user_id'], $allUserId)) {
+    if ($condition && in_array($postParams['created_by_user_id'] && isset($images), $allUserId)) {
         $query = <<<SQL
             INSERT INTO post (content, created_by_user_id, created_at, likes)
             VALUES (:content, :created_by_user_id, :created_at, :likes)
